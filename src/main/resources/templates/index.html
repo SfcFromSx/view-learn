@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/echart/css/index.css}">
+    <script type="text/javascript" th:src="@{/echart/js/flexible.js}"></script>
+    <script type="text/javascript" th:src="@{/echart/js/jquery.js}"></script>
+    <script type="text/javascript" th:src="@{/echart/js/echarts.min.js}"></script>
+    <script type="text/javascript" th:src="@{/echart/js/echarts-wordcloud.min.js}"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1 th:text="${title}"></h1>
+      <div class="showTime"></div>
+      <script>
+        var t = null;
+        t = setTimeout(time, 1000); //開始运行
+        function time() {
+          clearTimeout(t); //清除定时器
+          dt = new Date();
+          var y = dt.getFullYear();
+          var mt = dt.getMonth() + 1;
+          var day = dt.getDate();
+          var h = dt.getHours(); //获取时
+          var m = dt.getMinutes(); //获取分
+          var s = dt.getSeconds(); //获取秒
+          document.querySelector(".showTime").innerHTML =
+            y +
+            "-" +
+            mt +
+            "-" +
+            day +
+            " " +
+            h +
+            ":" +
+            m +
+            ":" +
+            s;
+          t = setTimeout(time, 1000); //设定定时器，循环运行
+        }
+      </script>
+    </header>
+    <section class="mainbox">
+      <div class="column">
+        <div class="panel bar">
+          <h2>历史指令</h2>
+          <div class="chart"></div>
+          <h2>
+            <a href="javascript:;">周</a>
+            <a href="javacript:;">月</a>
+            <a href="javacript:;">年</a>
+          </h2>
+          <div class="panel-footer">
+          </div>
+        </div>
+        <div class="panel line">
+          <h2>当日指令</h2>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="no">
+          <div class="no-hd">
+            <ul>
+              <li class="typeOnNumber">指令</li>
+              <li class="commentOnNumber">新发起</li>
+              <li>10</li>
+              <li class="commentOnNumber">流转中</li>
+              <li>8</li>
+              <li class="commentOnNumber">已完成</li>
+              <li>12</li>
+            </ul>
+          </div>
+          <div class="no-hd">
+            <ul>
+              <li class="typeOnNumber">交易</li>
+              <li class="commentOnNumber">已接单</li>
+              <li>6</li>
+              <li class="commentOnNumber">流转中</li>
+              <li>5</li>
+              <li class="commentOnNumber">已成交</li>
+              <li>4</li>
+            </ul>
+          </div>
+        </div>
+        <div class="map">
+          <div class="chart1"></div>
+          <div class="chart2"></div>
+          <div class="map1"></div>
+          <div class="map2"></div>
+          <div class="map3"></div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="panel bar1">
+          <h2>历史交易</h2>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+        <div class="panel line1">
+          <h2>当日交易</h2>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+      </div>
+    </section>
+    <script type="text/javascript" th:src="@{/echart/js/index.js}"></script>
+    <script type="text/javascript" th:src="@{/echart/js/china.js}"></script>
+    <script type="text/javascript" th:src="@{/echart/js/wordClound.js}"></script>
+  </body>
+</html>
