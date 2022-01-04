@@ -102,9 +102,8 @@
         },
         series: series2,
     };
-    // 把配置给实例对象
-    // myChart1.setOption(option1);
-    myChart2.setOption(option2);
+
+
     window.addEventListener("resize", function() {
         myChart1.resize();
     });
@@ -112,39 +111,38 @@
         myChart2.resize();
     });
 
-
-    var data1 = [
-        {
-            name: '投资经理A',
-            value: 121,
-        },
-        {
-            name: '投资经理B',
-            value: 123,
-        },
-        {
-            name: '投资经理C',
-            value: 222,
-        },
-        {
-            name: '投资经理D',
-            value: 42,
-        },
-        {
-            name: '投资经理E',
-            value: 0,
-        }
-    ];
+    var socket = null;
+    if ('WebSocket' in window) {
+        socket = new WebSocket('ws://localhost:8080/webSocket');
+        console.log(socket);
+    } else {
+        alert("该浏览器不支持websocket，数据同步功能异常");
+    }
+    socket.onopen = function (event) {
+        console.log("建立连接");
+    }
+    socket.onclose = function (event) {
+        console.log("连接关闭");
+    }
+    socket.onmessage = function (event) {
+        var newData = JSON.parse(event.data);
+        option2.series[0].data = newData;
+        myChart2.setOption(option2);
+    }
+    socket.onerror = function () {
+        alert("socket error.")
+    }
+    socket.onbeforeunload = function () {
+        socket.close();
+    }
 
     setInterval(function () {
-        console.log('test1234234');
         $.ajax({
             url: "http://localhost:8080/learn/view/extract",
             data: {},
             type: "GET",
             dataType: "JSON",
             success: function(newData) {
-                console.log(newData);
                 option1.series[0].data = newData;
                 myChart1.setOption(option1);
             }
