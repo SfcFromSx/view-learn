@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+<header>
+    <h1 th:text="${employee.name}"></h1>
+    <h2 th:text="'所属部门:' + ${employee.department}"></h2>
+    <table border="1">
+        <tr>
+            <th>交易编号</th>
+            <th>交易金额</th>
+            <th>交易时间</th>
+            <th>状态变量：index</th>
+            <th>状态变量：count</th>
+            <th>状态变量：size</th>
+            <th>状态变量：current.userName</th>
+            <th>状态变量：even</th>
+            <th>状态变量：odd</th>
+            <th>状态变量：first</th>
+            <th>状态变量：last</th>
+        </tr>
+        <tr  th:each="deal,stat : ${employee.dealDetails}">
+            <td th:text="${deal.dealCode}">Onions</td>
+            <td th:text="${deal.dealAmt}">test@test.com.cn</td>
+            <td th:text="${deal.dealDate}">yes</td>
+            <th th:text="${stat.index}">变量：index</th>
+            <th th:text="${stat.count}">变量：count</th>
+            <th th:text="${stat.size}">变量：size</th>
+            <th th:text="${stat.current.dealCode}">变量：current</th>
+            <th th:text="${stat.even}">变量：even****</th>
+            <th th:text="${stat.odd}">变量：odd</th>
+            <th th:text="${stat.first}">变量：first</th>
+            <th th:text="${stat.last}">变量：last</th>
+        </tr>
+    </table>
+</header>
+</body>
+</html>

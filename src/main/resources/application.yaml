@@ -19,4 +19,4 @@ mybatis:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 server:
-  port: 8081
+  port: 8080
