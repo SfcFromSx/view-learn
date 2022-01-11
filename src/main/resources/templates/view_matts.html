@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/echart/css/view-matts.css}">
+    <script type="text/javascript" th:src="@{/echart/js/flexible.js}"></script>
+    <script type="text/javascript" th:src="@{/echart/js/jquery.js}"></script>
+    <script type="text/javascript" th:src="@{/echart/js/echarts.min.js}"></script>
+    <script type="text/javascript" th:src="@{/echart/js/echarts-wordcloud.min.js}"></script>
+    <script type="text/javascript" th:src="@{/echart/js/time.js}"></script>
+    <script type="text/javascript" th:src="@{/echart/js/charts/chartTemplate.js}"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1 th:text="${title}"></h1>
+      <div class="showTime"></div>
+    </header>
+    <section class="mainbox">
+      <div class="column">
+        <div class="panel bar">
+          <h2>历史指令</h2>
+          <div class="chart" id="left1">
+          </div>
+          <div class="panel-footer">
+          </div>
+        </div>
+        <div class="panel line" id="left2">
+          <h2>当日指令</h2>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="panel bar1">
+          <h2>历史交易</h2>
+          <div class="chart" id="right1">
+          </div>
+          <div class="panel-footer"></div>
+        </div>
+        <div class="panel line1" id="right2">
+          <h2>当日交易</h2>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+      </div>
+    </section>
+    <script>
+      var left1 = document.querySelector("#left1");
+      chartInit(left1, "funnel");
+      var left2 = document.querySelector("#left2");
+      chartInit(left2, "funnel");
+      var right1 = document.querySelector("#right1");
+      chartInit(right1, "wordCloud");
+      var right2 = document.querySelector("#right2");
+      chartInit(right2, "wordCloud");
+    </script>
+  </body>
+</html>

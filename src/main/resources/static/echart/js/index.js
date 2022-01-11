@@ -29,7 +29,7 @@
           "资管计划",
           "模糊",
           "回顾",
-          "模糊指令"
+          "模糊指令1"
         ],
         axisTick: {
           alignWithLabel: true

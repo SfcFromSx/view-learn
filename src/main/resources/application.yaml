@@ -8,7 +8,7 @@ spring:
     url: jdbc:h2:file:C:\Users\Administrator\test
 #    url: jdbc:h2:file:~/test
     username: root
-    password:
+    password: test
   sql:
     init:
       schema-locations: classpath:db/schema-h2.sql
