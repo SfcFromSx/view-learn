@@ -1,7 +1,7 @@
 package com.learn.view.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.learn.view.bean.EmployVo;
+import com.learn.view.bean.vo.WordCloudVo;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -43,12 +43,12 @@ public class DataSocket {
     public void sendMessage() {
         for (DataSocket socket : socketSet) {
             try {
-                List<EmployVo> value = new ArrayList<>();
-                value.add(new EmployVo("张三2", new Random().nextInt(300)));
-                value.add(new EmployVo("李四2", new Random().nextInt(300)));
-                value.add(new EmployVo("王五2", new Random().nextInt(300)));
-                value.add(new EmployVo("赵六2", new Random().nextInt(300)));
-                value.add(new EmployVo("孙七2", new Random().nextInt(300)));
+                List<WordCloudVo> value = new ArrayList<>();
+                value.add(new WordCloudVo("张三2", new Random().nextInt(300)));
+                value.add(new WordCloudVo("李四2", new Random().nextInt(300)));
+                value.add(new WordCloudVo("王五2", new Random().nextInt(300)));
+                value.add(new WordCloudVo("赵六2", new Random().nextInt(300)));
+                value.add(new WordCloudVo("孙七2", new Random().nextInt(300)));
                 ObjectMapper objectMapper = new ObjectMapper();
                 String json = objectMapper.writeValueAsString(value);
                 socket.session.getBasicRemote().sendText(json);

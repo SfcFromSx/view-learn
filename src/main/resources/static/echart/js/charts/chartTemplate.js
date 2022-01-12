@@ -1,14 +1,28 @@
-function chartInit(div, chartType) {
-    switch (chartType) {
-        case "funnel":
-            funnelInit(div);
-            break;
-        case "wordCloud":
-            wordCloudInit(div, ["http://localhost:8080/learn/view/extract"]);
+function viewInit(initPara) {
+    console.log(initPara);
+    const paraObject = JSON.parse(initPara)[0];
+    console.log(paraObject);
+    const chartParas = paraObject['chartParas'];
+    for (let i = 0; i < chartParas.length; i++) {
+        const chartPara = chartParas[i];
+        const div = document.querySelector("#" + chartPara['location']);
+        const type = chartPara['chartType'];
+        div.parentNode.firstElementChild.innerText = chartPara['chartTitle'];
+        chartInit(div, type, chartPara);
     }
 }
 
-function funnelInit(funnelDiv) {
+function chartInit(div, type, para) {
+    switch (type) {
+        case "funnel":
+            funnelInit(div, para);
+            break;
+        case "wordCloud":
+            wordCloudInit(div, para);
+    }
+}
+
+function funnelInit(funnelDiv, para) {
     var myChart = echarts.init(funnelDiv);
     option = {
         // title: {
@@ -20,8 +34,7 @@ function funnelInit(funnelDiv) {
         //     }
         // },
         // backgroundColor: '#522257',
-        color: ['#efbb1a', '#d77169', '#c14f60', '#953f61', '#72355f', ],
-
+        color: ['#efbb1a', '#d77169', '#c14f60', '#953f61', '#72355f'],
         series : [
             {
                 name:'漏斗图',
@@ -34,20 +47,10 @@ function funnelInit(funnelDiv) {
                 // height: {totalHeight} - y - y2,
                 min: 0,
                 max: 100,
-                minSize: '0%',
+                minSize: '20%',
                 maxSize: '100%',
                 sort : 'descending', // 'ascending', 'descending'
                 gap :0,
-
-                data:[
-                    {value:60, name:'访问'},
-                    {value:40, name:'咨询'},
-                    {value:20, name:'订单'},
-                    {value:80, name:'点击'},
-                    {value:100, name:'展现'}
-
-
-                ].sort(function (a, b) { return a.value - b.value}),
                 roseType: true,
                 label: {
                     normal: {
@@ -68,10 +71,27 @@ function funnelInit(funnelDiv) {
                 }
 
             }
-
         ]
     };
+    update();
+    setInterval(update, para['frequency']);
+    function update() {
+        $.ajax({
+            url: para['dataUrl'],
+            data: {},
+            type: "GET",
+            dataType: "JSON",
+            success: function(newData) {
+                console.log(newData);
+                option.series[0].data = newData.sort(function (a, b) { return a.value - b.value});
+                myChart.setOption(option);
+            }
+        });
+    }
     myChart.setOption(option);
+    window.addEventListener("resize", function() {
+        myChart.resize();
+    });
 }
 
 function wordCloudInit(wordCloudDiv, para) {
@@ -118,20 +138,24 @@ function wordCloudInit(wordCloudDiv, para) {
         series: series1,
     };
 
-    window.addEventListener("resize", function() {
-        myChart1.resize();
-    });
-
-    setInterval(function () {
+    function update() {
         $.ajax({
-            url: para[0],
+            url: para['dataUrl'],
             data: {},
             type: "GET",
             dataType: "JSON",
             success: function(newData) {
+                console.log(newData);
                 option1.series[0].data = newData;
                 myChart1.setOption(option1);
             }
         });
-    },2000);
+    }
+    update();
+    setInterval(update, para['frequency']);
+
+    window.addEventListener("resize", function() {
+        myChart1.resize();
+    });
+
 }
