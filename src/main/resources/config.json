@@ -1,0 +1,23 @@
+{
+  "title": "测试分屏1",
+  "charts": {
+    "left1": "wordCloud1",
+    "left2": "wordCloud2",
+    "right1": "funnel1",
+    "right2": "funnel2"
+  }
+}
+
+{
+  "chartTitle": "wordCloud1",
+  "chartType": "wordCloud",
+  "dataUrl": "http://localhost:8080/learn/view/extract/wordCloud",
+  "frequency": "5000"
+}
+
+{
+  "chartTitle": "funnel1",
+  "chartType": "funnel",
+  "dataUrl": "http://localhost:8080/learn/view/extract/funnel",
+  "frequency": "5000"
+}

@@ -15,7 +15,7 @@
 
   <body>
     <header>
-      <h1 th:text="${title}"></h1>
+      <h1 th:text="${para.title}"></h1>
       <div class="showTime"></div>
     </header>
     <section class="mainbox">
@@ -25,9 +25,9 @@
           <div class="chart" id="left1"></div>
           <div class="panel-footer"></div>
         </div>
-        <div class="panel line" id="left2">
+        <div class="panel line">
           <h2>当日指令</h2>
-          <div class="chart"></div>
+          <div class="chart" id="left2"></div>
           <div class="panel-footer"></div>
         </div>
       </div>
@@ -37,9 +37,9 @@
           <div class="chart" id="middle1"></div>
           <div class="panel-footer"></div>
         </div>
-        <div class="panel line" id="middle2">
+        <div class="panel line">
           <h2>当日指令</h2>
-          <div class="chart"></div>
+          <div class="chart" id="middle2"></div>
           <div class="panel-footer"></div>
         </div>
       </div>
@@ -49,14 +49,15 @@
           <div class="chart" id="right1"></div>
           <div class="panel-footer"></div>
         </div>
-        <div class="panel line1" id="right2">
+        <div class="panel line1">
           <h2>当日交易</h2>
-          <div class="chart"></div>
+          <div class="chart" id="right2"></div>
           <div class="panel-footer"></div>
         </div>
       </div>
     </section>
-    <script>
+    <script th:inline="javascript">
+      viewInit([[${para.jsonPara}]]);
     </script>
   </body>
 </html>

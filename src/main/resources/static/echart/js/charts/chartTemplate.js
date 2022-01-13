@@ -110,7 +110,7 @@ function wordCloudInit(wordCloudDiv, para) {
             rotationRange: [0,0],
             gridSize: 30,
             shape: 'diamond',
-            sizeRange: [30, 40],
+            sizeRange: [30, 60],
             width: 600,
             height: 300,
             textStyle: {
@@ -157,5 +157,4 @@ function wordCloudInit(wordCloudDiv, para) {
     window.addEventListener("resize", function() {
         myChart1.resize();
     });
-
 }

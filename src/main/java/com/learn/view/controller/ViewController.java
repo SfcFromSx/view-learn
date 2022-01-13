@@ -4,11 +4,15 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.learn.view.bean.para.ChartPara;
 import com.learn.view.bean.para.ViewPara;
+import com.learn.view.data.H2DataSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class ViewController {
@@ -21,36 +25,35 @@ public class ViewController {
 
 
     @RequestMapping("/learn/view/2p2")
-    public String branch1(Model model) throws JsonProcessingException {
-        ViewPara viewPara = new ViewPara();
-        List<ChartPara> chartParas = viewPara.getChartParas();
-        viewPara.setTitle("田字格分屏");
-        // 左1图标配置 以词云为例
-        ChartPara left1 = new ChartPara();
-        left1.setLocation("left1");
-        left1.setChartType("wordCloud");
-        left1.setChartTitle("左1图表展示");
-        left1.setDataUrl("http://localhost:8080/learn/view/extract/wordCloud");
-        left1.setFrequency(5000);
-        chartParas.add(left1);
-        // 左2图标配置 以漏斗图为例
-        ChartPara left2 = new ChartPara();
-        left2.setLocation("left2");
-        left2.setChartType("funnel");
-        left2.setChartTitle("左2图表展示");
-        left2.setDataUrl("http://localhost:8080/learn/view/extract/funnel");
-        left2.setFrequency(2000);
-        chartParas.add(left2);
-        // 右1 右2
-
-        viewPara.setJsonPara("[" + new ObjectMapper().writeValueAsString(viewPara) + "]");
+    public String branch1(Model model) throws Exception {
+        ViewPara viewPara = getTemplateParaById("branch1");
         model.addAttribute("para", viewPara);
         return "view_2p2";
     }
 
-    @RequestMapping("/learn/view/3p3")
-    public String branch2(Model model) {
-        model.addAttribute("para", "九宫格分屏");
-        return "view_3p3";
+    @RequestMapping("/learn/view/2p3")
+    public String branch2(Model model) throws Exception {
+        ViewPara viewPara = getTemplateParaById("branch2");
+        model.addAttribute("para", viewPara);
+        return "view_2p3";
+    }
+
+    private ViewPara getTemplateParaById(String templateId) throws Exception {
+        String value = H2DataSource.queryParaByKey(templateId);
+        ViewPara viewPara1 = new ObjectMapper().readValue(value, ViewPara.class);
+        List<ChartPara> chartParas = new ArrayList<>();
+        for (Map.Entry<String, String> entryMap : viewPara1.getCharts().entrySet()) {
+            ChartPara chartPara = getChartParaById(entryMap.getValue());
+            chartPara.setLocation(entryMap.getKey());
+            chartParas.add(chartPara);
+        }
+        viewPara1.setChartParas(chartParas);
+        viewPara1.setJsonPara("[" + new ObjectMapper().writeValueAsString(viewPara1) + "]");
+        return viewPara1;
+    }
+
+    private ChartPara getChartParaById(String chartId) throws Exception {
+        String value = H2DataSource.queryParaByKey(chartId);
+        return new ObjectMapper().readValue(value, ChartPara.class);
     }
 }
