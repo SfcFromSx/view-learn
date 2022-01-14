@@ -1,15 +1,14 @@
 package com.learn.view.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.learn.view.bean.para.ChartPara;
 import com.learn.view.bean.para.ViewPara;
 import com.learn.view.data.H2DataSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -24,16 +23,16 @@ public class ViewController {
     }
 
 
-    @RequestMapping("/learn/view/2p2")
-    public String branch1(Model model) throws Exception {
-        ViewPara viewPara = getTemplateParaById("branch1");
+    @RequestMapping("/learn/view/2p2/{templateId}")
+    public String branch1(Model model,  @PathVariable("templateId") String templateId) throws Exception {
+        ViewPara viewPara = getTemplateParaById(templateId);
         model.addAttribute("para", viewPara);
         return "view_2p2";
     }
 
-    @RequestMapping("/learn/view/2p3")
-    public String branch2(Model model) throws Exception {
-        ViewPara viewPara = getTemplateParaById("branch2");
+    @RequestMapping("/learn/view/2p3/{templateId}")
+    public String branch2(Model model, @PathVariable("templateId") String templateId) throws Exception {
+        ViewPara viewPara = getTemplateParaById(templateId);
         model.addAttribute("para", viewPara);
         return "view_2p3";
     }
