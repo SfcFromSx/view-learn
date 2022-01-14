@@ -16,22 +16,29 @@ import java.util.Map;
 @Controller
 public class ViewController {
 
-    @RequestMapping("/learn/view/index")
-    public String index(Model model) {
+    @RequestMapping("/learn/view/index/{templateId}")
+    public String index(Model model, @PathVariable("templateId") String templateId) throws Exception {
+        ViewPara viewPara = getTemplateParaById(templateId);
+        model.addAttribute("para", viewPara);
+        return "view_main";
+    }
+
+    @RequestMapping("/learn/view/main")
+    public String main(Model model) {
         model.addAttribute("title", "一体化管控平台");
         return "index";
     }
 
 
     @RequestMapping("/learn/view/2p2/{templateId}")
-    public String branch1(Model model,  @PathVariable("templateId") String templateId) throws Exception {
+    public String viewModelOf2p2(Model model,  @PathVariable("templateId") String templateId) throws Exception {
         ViewPara viewPara = getTemplateParaById(templateId);
         model.addAttribute("para", viewPara);
         return "view_2p2";
     }
 
     @RequestMapping("/learn/view/2p3/{templateId}")
-    public String branch2(Model model, @PathVariable("templateId") String templateId) throws Exception {
+    public String viewModelOf2p3(Model model, @PathVariable("templateId") String templateId) throws Exception {
         ViewPara viewPara = getTemplateParaById(templateId);
         model.addAttribute("para", viewPara);
         return "view_2p3";
