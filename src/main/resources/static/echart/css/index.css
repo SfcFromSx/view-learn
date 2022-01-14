@@ -218,6 +218,15 @@ header .showTime {
   position: relative;
   height: 9.45rem;
 }
+.map .chart {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  height: 10.125rem;
+  width: 100%;
+}
+
 .map .chart1{
   position: absolute;
   top: 0.5rem;
