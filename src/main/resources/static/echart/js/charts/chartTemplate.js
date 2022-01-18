@@ -19,6 +19,19 @@ function chartInit(div, type, para) {
             break;
         case "wordCloud":
             wordCloudInit(div, para);
+            break;
+        case "stack":
+            stackInit(div, para);
+            break;
+        case "pie":
+            pieInit(div, para);
+            break;
+        case "stackArea":
+            stackAreaInit(div, para);
+            break;
+        case "liquidFill":
+            liquidFill(div, para);
+            break;
     }
 }
 
@@ -157,4 +170,323 @@ function wordCloudInit(wordCloudDiv, para) {
     window.addEventListener("resize", function() {
         myChart1.resize();
     });
+}
+
+function stackInit(div, para) {
+    var myChart = echarts.init(div);
+    var option;
+
+    option = {
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                // Use axis to trigger tooltip
+                type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+            }
+        },
+        legend: {
+            textStyle: {
+                color: "#7c96b4"
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            // 刻度隐藏
+            axisTick: {
+                show: false
+            },
+            // 修饰刻度标签的颜色
+            axisLabel: {
+                color: "rgba(255,255,255,.7)"
+            },
+            // 轴线隐藏
+            axisLine: {
+                show: false
+            },
+            type: 'value'
+        },
+        yAxis: {
+            type: 'category',
+            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            // 刻度隐藏
+            axisTick: {
+                show: false
+            },
+            // 修饰刻度标签的颜色
+            axisLabel: {
+                color: "rgba(255,255,255,.7)"
+            },
+            // 轴线隐藏
+            axisLine: {
+                show: false
+            },
+        },
+        series: [
+            {
+                name: 'Direct',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                    show: true
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [320, 302, 301, 334, 390, 330, 320]
+            },
+            {
+                name: 'Mail Ad',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                    show: true
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [120, 132, 101, 134, 90, 230, 210]
+            },
+            {
+                name: 'Affiliate Ad',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                    show: true
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [220, 182, 191, 234, 290, 330, 310]
+            },
+            {
+                name: 'Video Ad',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                    show: true
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [150, 212, 201, 154, 190, 330, 410]
+            },
+            {
+                name: 'Search Engine',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                    show: true
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [820, 832, 901, 934, 1290, 1330, 1320]
+            }
+        ]
+    };
+    option && myChart.setOption(option);
+}
+
+function pieInit(div, para) {
+    var myChart = echarts.init(div);
+    var option;
+
+    option = {
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: {
+            top: '5%',
+            left: 'center',
+            textStyle: {
+                color: "#7c96b4"
+            }
+        },
+        series: [
+            {
+                name: 'Access From',
+                type: 'pie',
+                radius: ['40%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: '40',
+                        fontWeight: 'bold'
+                    }
+                },
+                labelLine: {
+                    show: false
+                },
+                data: [
+                    { value: 1048, name: 'Search Engine' },
+                    { value: 735, name: 'Direct' },
+                    { value: 580, name: 'Email' },
+                    { value: 484, name: 'Union Ads' },
+                    { value: 300, name: 'Video Ads' }
+                ]
+            }
+        ]
+    };
+
+    option && myChart.setOption(option);
+}
+
+function stackAreaInit(div, para) {
+    var myChart = echarts.init(div);
+    var option;
+
+    option = {
+        // title: {
+        //     text: 'Stacked Area Chart'
+        // },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross',
+                label: {
+                    backgroundColor: '#6a7985'
+                }
+            }
+        },
+        legend: {
+            data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine'],
+            textStyle: {
+                color: "#7c96b4"
+            }
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: [
+            {
+                // 去除刻度??
+                axisTick: {
+                    show: false
+                },
+                // 修饰刻度标签的颜色
+                axisLabel: {
+                    color: "rgba(255,255,255,.7)"
+                },
+                // 去除x坐标轴的颜色??
+                axisLine: {
+                    show: false
+                },
+                type: 'category',
+                boundaryGap: false,
+                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            }
+        ],
+        yAxis: [
+            {
+                // 去除刻度??
+                axisTick: {
+                    show: false
+                },
+                // 修饰刻度标签的颜色
+                axisLabel: {
+                    color: "rgba(255,255,255,.7)"
+                },
+                // 去除x坐标轴的颜色??
+                axisLine: {
+                    show: false
+                },
+                type: 'value'
+            }
+        ],
+        series: [
+            {
+                name: 'Email',
+                type: 'line',
+                stack: 'Total',
+                areaStyle: {},
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [120, 132, 101, 134, 90, 230, 210]
+            },
+            {
+                name: 'Union Ads',
+                type: 'line',
+                stack: 'Total',
+                areaStyle: {},
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [220, 182, 191, 234, 290, 330, 310]
+            },
+            {
+                name: 'Video Ads',
+                type: 'line',
+                stack: 'Total',
+                areaStyle: {},
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [150, 232, 201, 154, 190, 330, 410]
+            },
+            {
+                name: 'Direct',
+                type: 'line',
+                stack: 'Total',
+                areaStyle: {},
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [320, 332, 301, 334, 390, 330, 320]
+            },
+            {
+                name: 'Search Engine',
+                type: 'line',
+                stack: 'Total',
+                label: {
+                    show: true,
+                    position: 'top'
+                },
+                areaStyle: {},
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [820, 932, 901, 934, 1290, 1330, 1320]
+            }
+        ]
+    };
+
+    option && myChart.setOption(option);
+}
+
+function liquidFill(div, para) {
+    var myChart = echarts.init(div);
+    var option;
+    option = {
+        series: [{
+            backgroundStyle: {
+                borderWidth: 0
+            },
+            outline: {
+                borderDistance: 0
+            },
+            type: 'liquidFill',
+            data: [0.8, 0.5, 0.4, 0.3],
+            radius: '80%'
+        }]
+    };
+    option && myChart.setOption(option);
 }

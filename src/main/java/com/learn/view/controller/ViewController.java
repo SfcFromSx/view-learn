@@ -16,16 +16,16 @@ import java.util.Map;
 @Controller
 public class ViewController {
 
-    @RequestMapping("/learn/view/index/{templateId}")
+    @RequestMapping("/learn/view/main2/{templateId}")
     public String index(Model model, @PathVariable("templateId") String templateId) throws Exception {
         ViewPara viewPara = getTemplateParaById(templateId);
         model.addAttribute("para", viewPara);
-        return "view_main";
+        return "view_main2";
     }
 
-    @RequestMapping("/learn/view/main")
+    @RequestMapping("/learn/view/main1")
     public String main(Model model) {
-        model.addAttribute("title", "一体化管控平台");
+        model.addAttribute("title", "业务管控平台-主屏1号");
         return "index";
     }
 

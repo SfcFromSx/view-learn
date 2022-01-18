@@ -1,77 +1,67 @@
-{
-  "title": "测试分屏1",
-  "charts": {
-    "left1": "wordCloud1",
-    "left2": "wordCloud2",
-    "right1": "funnel1",
-    "right2": "funnel2"
-  }
-}
-
-{
-  "chartTitle": "wordCloud1",
-  "chartType": "wordCloud",
-  "dataUrl": "http://localhost:8080/learn/view/extract/wordCloud",
-  "frequency": "5000"
-}
-
-{
-  "chartTitle": "funnel1",
+EditDelete    funnel1    {
+  "chartTitle": "漏斗图示例",
   "chartType": "funnel",
   "dataUrl": "http://localhost:8080/learn/view/extract/funnel",
   "frequency": "5000"
 }
-
-{
-  "title": "测试分屏1",
+EditDelete    stack1    {
+  "chartTitle": "堆叠图示例",
+  "chartType": "stack",
+  "dataUrl": "http://localhost:8080/learn/view/extract/funnel",
+  "frequency": "5000"
+}
+EditDelete    pie1    {
+  "chartTitle": "空心饼图示例",
+  "chartType": "pie",
+  "dataUrl": "http://localhost:8080/learn/view/extract/funnel",
+  "frequency": "5000"
+}
+EditDelete    stackArea1    {
+  "chartTitle": "堆叠面积图示例",
+  "chartType": "stackArea",
+  "dataUrl": "http://localhost:8080/learn/view/extract/funnel",
+  "frequency": "5000"
+}
+EditDelete    liquidFill1    {
+  "chartTitle": "水球图示例",
+  "chartType": "liquidFill",
+  "dataUrl": "http://localhost:8080/learn/view/extract/funnel",
+  "frequency": "5000"
+}
+EditDelete    wordCloud1     {
+  "chartTitle": "词云图示例",
+  "chartType": "wordCloud",
+  "dataUrl": "http://localhost:8080/learn/view/extract/funnel",
+  "frequency": "5000"
+}
+EditDelete    m2    {
+  "title": "业务管控平台-主屏2号",
   "charts": {
     "left1": "wordCloud1",
-    "left2": "wordCloud2",
-    "middle": "wordCloud1",
-    "right1": "funnel1",
-    "right2": "funnel2"
+    "left2": "funnel1",
+    "left3": "stack1",
+    "right1": "stackArea1",
+    "right2": "liquidFill1",
+    "right3": "pie1"
   }
 }
-
-[
-  {
-    "title": "测试分屏1",
-    "charts": {
-      "left1": "wordCloud1",
-      "left2": "wordCloud2",
-      "right1": "funnel1",
-      "right2": "funnel2"
-    },
-    "chartParas": [
-      {
-        "location": "left1",
-        "chartTitle": "wordCloud1",
-        "chartType": "wordCloud",
-        "dataUrl": "http://localhost:8080/learn/view/extract/wordCloud",
-        "frequency": 5000
-      },
-      {
-        "location": "left2",
-        "chartTitle": "wordCloud2",
-        "chartType": "wordCloud",
-        "dataUrl": "http://localhost:8080/learn/view/extract/wordCloud",
-        "frequency": 2000
-      },
-      {
-        "location": "right1",
-        "chartTitle": "funnel1",
-        "chartType": "funnel",
-        "dataUrl": "http://localhost:8080/learn/view/extract/funnel",
-        "frequency": 5000
-      },
-      {
-        "location": "right2",
-        "chartTitle": "funnel1",
-        "chartType": "funnel",
-        "dataUrl": "http://localhost:8080/learn/view/extract/funnel",
-        "frequency": 5000
-      }
-    ],
-    "jsonPara": null
+EditDelete    branch1    {
+  "title": "业务管控平台-分屏1号",
+  "charts": {
+    "left1": "wordCloud1",
+    "left2": "pie1",
+    "right1": "funnel1",
+    "right2": "liquidFill1"
   }
-]
+}
+EditDelete    branch2    {
+  "title": "业务管控平台-分屏2号",
+  "charts": {
+    "left1": "wordCloud1",
+    "left2": "pie1",
+    "middle1": "stack1",
+    "middle2": "stackArea1",
+    "right1": "funnel1",
+    "right2": "liquidFill1"
+  }
+}

@@ -9,29 +9,58 @@
   <script type="text/javascript" th:src="@{/echart/js/jquery.js}"></script>
   <script type="text/javascript" th:src="@{/echart/js/echarts.min.js}"></script>
   <script type="text/javascript" th:src="@{/echart/js/echarts-wordcloud.min.js}"></script>
+  <script type="text/javascript" th:src="@{/echart/js/echarts-liquidfill.min.js}"></script>
   <script type="text/javascript" th:src="@{/echart/js/time.js}"></script>
+  <script type="text/javascript" th:src="@{/echart/js/charts/chartTemplate.js}"></script>
+  <style>
+    .panel{
+      height: 3.85rem;
+    }
+    .panel .chart{
+      height: 2.95rem;
+    }
+    .mainbox .column {
+      flex: 3;
+    }
+    .mainbox .column:nth-child(2) {
+      flex: 5;
+      margin: 0 0.125rem 0.1875rem;
+      overflow: hidden;
+    }
+    .map .chart {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 5;
+      height: 10.125rem;
+      width: 100%;
+    }
+    .map .map1{
+      background: none;
+    }
+  </style>
 </head>
 
 <body>
 <header>
   <h1 th:text="${para.title}"></h1>
-  <div class="showTime">当前时间：2020年3月17-0时54分14秒</div>
+  <div class="showTime"></div>
 </header>
 <section class="mainbox">
   <div class="column">
     <div class="panel bar">
       <h2></h2>
-      <div class="chart"></div>
+      <div class="chart" id="left1"></div>
       <div class="panel-footer"></div>
     </div>
     <div class="panel line">
       <h2></h2>
-      <div class="chart"></div>
+      <div class="chart" id="left2"></div>
       <div class="panel-footer"></div>
     </div>
     <div class="panel pie">
       <h2></h2>
-      <div class="chart"></div>
+      <div class="chart" id="left3"></div>
       <div class="panel-footer"></div>
     </div>
   </div>
@@ -60,20 +89,23 @@
   <div class="column">
     <div class="panel bar1">
       <h2></h2>
-      <div class="chart"></div>
+      <div class="chart" id="right1"></div>
       <div class="panel-footer"></div>
     </div>
     <div class="panel line1">
       <h2>折线图-播放量</h2>
-      <div class="chart"></div>
+      <div class="chart" id="right2"></div>
       <div class="panel-footer"></div>
     </div>
     <div class="panel pie1">
       <h2>饼形图-地区分布</h2>
-      <div class="chart"></div>
+      <div class="chart" id="right3"></div>
       <div class="panel-footer"></div>
     </div>
   </div>
+  <script th:inline="javascript">
+    viewInit([[${para.jsonPara}]]);
+  </script>
 </section>
 </body>
 </html>
