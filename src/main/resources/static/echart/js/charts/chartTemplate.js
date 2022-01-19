@@ -19,6 +19,8 @@ function chartInit(div, type, para) {
             break;
         case "wordCloud":
             wordCloudInit(div, para);
+        case "gauge":
+            gaugeInit(div,para);
             break;
         case "stack":
             stackInit(div, para);
@@ -35,6 +37,95 @@ function chartInit(div, type, para) {
         case "tree":
             treeInit(div, para);
     }
+}
+
+function gaugeInit(gaugeDiv, para) {
+    var myChart = echarts.init(gaugeDiv);
+    var option = {
+        title: {
+            text: '业务指标',
+            textStyle: {
+                color: '#fff',
+                fontStyle: 'normal',
+                fontSize: 20
+            }
+        },
+        series: [
+            {
+                type: 'gauge',
+                radius: "80%",
+                axisLine: {
+                    lineStyle: {
+                        width: 30,
+                        color: [
+                            [0.3, '#67e0e3'],
+                            [0.7, '#37a2da'],
+                            [1, '#fd666d']
+                        ]
+                    }
+                },
+                pointer: {
+                    itemStyle: {
+                        color: 'auto'
+                    },
+                    length: "50%"
+                },
+                axisTick: {
+                    distance: -30,
+                    length: 8,
+                    lineStyle: {
+                        color: '#fff',
+                        width: 2
+                    }
+                },
+                splitLine: {
+                    distance: -30,
+                    length: 30,
+                    lineStyle: {
+                        color: '#fff',
+                        width: 4
+                    }
+                },
+                axisLabel: {
+                    color: 'auto',
+                    distance: 5,
+                    fontSize: 20
+                },
+                detail: {
+                    valueAnimation: true,
+                    formatter: '{value}%',
+                    color: 'auto',
+                    offsetCenter: ["0", "70%"],
+                    fontSize: 20
+                },
+                data: [
+                    {
+                        value: 70,
+                        name: '完成率'
+                    },
+                ]
+            }
+        ]
+    };
+    update();
+    setInterval(update, para['frequency']);
+    function update(){
+        $.ajax({
+            url: para['dataUrl'],
+            data: {},
+            type: "GET",
+            dataType: "JSON",
+            success: function(newData) {
+                console.log(newData);
+                option.series[0].data = newData;
+                myChart.setOption(option);
+            }
+        });
+    }
+    myChart.setOption(option);
+    window.addEventListener("resize", function() {
+        myChart.resize();
+    });
 }
 
 function funnelInit(funnelDiv, para) {
