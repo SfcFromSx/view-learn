@@ -122,7 +122,7 @@
 
     setInterval(function () {
         $.ajax({
-            url: "http://localhost:8080/learn/view/extract",
+            url: "http://localhost:8080/learn/view/extract/wordCloud",
             data: {},
             type: "GET",
             dataType: "JSON",
