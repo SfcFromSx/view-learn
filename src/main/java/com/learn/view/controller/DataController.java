@@ -1,6 +1,7 @@
 package com.learn.view.controller;
 
 import com.learn.view.bean.vo.FunnelVO;
+import com.learn.view.bean.vo.GaugeVO;
 import com.learn.view.bean.vo.WordCloudVo;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -34,6 +35,14 @@ public class DataController {
         value.add(new FunnelVO("状态3", new Random().nextInt(300)));
         value.add(new FunnelVO("状态4", new Random().nextInt(300)));
         value.add(new FunnelVO("状态5", new Random().nextInt(300)));
+        return value;
+    }
+
+    @ResponseBody
+    @RequestMapping("/learn/view/extract/gauge")
+    public List<GaugeVO> extractGauge() {
+        List<GaugeVO> value = new ArrayList<>();
+        value.add(new GaugeVO("完成率", Double.parseDouble(String.format("%.2f", new Random().nextDouble()*100.0))));
         return value;
     }
 
