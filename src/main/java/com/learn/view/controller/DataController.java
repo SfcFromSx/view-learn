@@ -42,7 +42,7 @@ public class DataController {
     @RequestMapping("/learn/view/extract/gauge")
     public List<GaugeVO> extractGauge() {
         List<GaugeVO> value = new ArrayList<>();
-        value.add(new GaugeVO("完成率", Double.parseDouble(String.format("%.2f", new Random().nextDouble()*100.0))));
+        value.add(new GaugeVO("",String.format("%.2f", new Random().nextDouble()*100.0)));
         return value;
     }
 

@@ -41,16 +41,8 @@ function chartInit(div, type, para) {
 }
 
 function gaugeInit(gaugeDiv, para) {
-    var myChart = echarts.init(gaugeDiv);
-    var option = {
-        title: {
-            text: '业务指标',
-            textStyle: {
-                color: '#fff',
-                fontStyle: 'normal',
-                fontSize: 20
-            }
-        },
+    let myChart = echarts.init(gaugeDiv);
+    let option = {
         series: [
             {
                 type: 'gauge',
@@ -98,13 +90,7 @@ function gaugeInit(gaugeDiv, para) {
                     color: 'auto',
                     offsetCenter: ["0", "70%"],
                     fontSize: 20
-                },
-                data: [
-                    {
-                        value: 70,
-                        name: '完成率'
-                    },
-                ]
+                }
             }
         ]
     };

@@ -7,5 +7,5 @@ import lombok.Data;
 @AllArgsConstructor
 public class GaugeVO {
     String name;
-    double value;
+    String value;
 }
