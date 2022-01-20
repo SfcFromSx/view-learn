@@ -19,6 +19,7 @@ function chartInit(div, type, para) {
             break;
         case "wordCloud":
             wordCloudInit(div, para);
+            break;
         case "gauge":
             gaugeInit(div,para);
             break;
@@ -175,7 +176,6 @@ function funnelInit(funnelDiv, para) {
                         shadowColor: 'rgba(0, 0, 0, 0.5)'
                     }
                 }
-
             }
         ]
     };
