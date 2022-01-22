@@ -1,12 +1,42 @@
+function templateInit(para) {
+    const isTest = (para === null || para === '');
+    $("div").each(function () {
+        if(this.firstElementChild) {
+            return;
+        }
+        if(this.innerText !== '') {
+            $(this).attr('id',this.innerText);
+            $(this).addClass("diy-chart");
+            $(this.parentNode).addClass("diy-panel");
+        }
+        $(this).css("font-size", 20);
+        if (isTest) {
+            this.style.background =
+                'rgb('+Math.floor(Math.random()*255)+','
+                +Math.floor(Math.random()*255)+','
+                +Math.floor(Math.random()*255)+')';
+        }
+    });
+    if (!isTest) viewInit(para);
+}
+
 function viewInit(initPara) {
     console.log(initPara);
-    const paraObject = JSON.parse(initPara)[0];
-    console.log(paraObject);
-    const chartParas = paraObject['chartParas'];
+    const paras = JSON.parse(initPara);
+    if (!paras || paras.length < 1) {
+        return;
+    }
+    console.log(paras[0]);
+    const chartParas = paras[0]['chartParas'];
     for (let i = 0; i < chartParas.length; i++) {
         const chartPara = chartParas[i];
         const div = document.querySelector("#" + chartPara['location']);
         const type = chartPara['chartType'];
+        const title = chartPara['chartTitle'];
+        if (title === '') {
+            $(div).removeClass("diy-chart");
+            $(div).addClass("diy-chart-no-title");
+        }
         div.parentNode.firstElementChild.innerText = chartPara['chartTitle'];
         chartInit(div, type, chartPara);
     }
@@ -202,7 +232,7 @@ function wordCloudInit(wordCloudDiv, para) {
             rotationRange: [0,0],
             gridSize: 30,
             shape: 'diamond',
-            sizeRange: [30, 60],
+            sizeRange: [20, 60],
             width: 600,
             height: 300,
             textStyle: {

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+	<link rel="stylesheet" type="text/css" media="all" th:href="@{/lib/bootstrap-3.4.1/css/bootstrap.min.css}">
+	<link rel="stylesheet" type="text/css" media="all" th:href="@{/css/view.css}">
+	<script type="text/javascript" th:src="@{/js/flexible.js}"></script>
+	<script type="text/javascript" th:src="@{/lib/jquery/jquery.min.js}"></script>
+	<!--	图表组件-->
+	<script type="text/javascript" th:src="@{/echart/js/echarts.min.js}"></script>
+	<script type="text/javascript" th:src="@{/echart/js/echarts-wordcloud.min.js}"></script>
+	<script type="text/javascript" th:src="@{/echart/js/echarts-liquidfill.min.js}"></script>
+	<script type="text/javascript" th:src="@{/echart/js/charts/chartTemplate.js}"></script>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12 diy-h-2 diy-header">
+				<h1 th:text="${para.title}"></h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 diy-h-6">
+				<h2>标题</h2>
+				<div>left1</div>
+			</div>
+			<div class="col-md-9 diy-h-6">
+				<div class="row">
+					<div class="col-md-6  diy-h-6">
+						<h2>标题</h2>
+						<div>middle1</div>
+					</div>
+					<div class="col-md-6  diy-h-6">
+						<h2>标题</h2>
+						<div>right1</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<div class="row">
+					<div class="col-md-12 diy-h-6">
+						<h2>标题</h2>
+						<div>left2</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 diy-h-6">
+						<h2>标题</h2>
+						<div>left3</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="row">
+					<div class="col-md-6 diy-h-12">
+						<h2>标题</h2>
+						<div>middle2</div>
+					</div>
+					<div class="col-md-6 diy-h-12">
+						<h2>标题</h2>
+						<div>right2</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script th:inline="javascript">
+		templateInit([[${para.jsonPara}]]);
+	</script>
+</body>
+</html>

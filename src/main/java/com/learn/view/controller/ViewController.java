@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.thymeleaf.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,16 +18,23 @@ import java.util.Map;
 public class ViewController {
 
     @RequestMapping("/learn/view/main2/{templateId}")
-    public String index(Model model, @PathVariable("templateId") String templateId) throws Exception {
+    public String main2(Model model, @PathVariable("templateId") String templateId) throws Exception {
         ViewPara viewPara = getTemplateParaById(templateId);
         model.addAttribute("para", viewPara);
         return "view_main2";
     }
 
     @RequestMapping("/learn/view/main1")
-    public String main(Model model) {
+    public String main1(Model model) {
         model.addAttribute("title", "业务管控平台-主屏1号");
         return "index";
+    }
+
+    @RequestMapping("/learn/view/main3/{templateId}")
+    public String main3(Model model, @PathVariable("templateId") String templateId) throws Exception {
+        ViewPara viewPara = getTemplateParaById(templateId);
+        model.addAttribute("para", viewPara);
+        return "view_main3";
     }
 
 
@@ -46,6 +54,9 @@ public class ViewController {
 
     private ViewPara getTemplateParaById(String templateId) throws Exception {
         String value = H2DataSource.queryParaByKey(templateId);
+        if (StringUtils.isEmpty(value)) {
+            return new ViewPara();
+        }
         ViewPara viewPara1 = new ObjectMapper().readValue(value, ViewPara.class);
         List<ChartPara> chartParas = new ArrayList<>();
         for (Map.Entry<String, String> entryMap : viewPara1.getCharts().entrySet()) {

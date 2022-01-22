@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    /*  背景图定位 / 背景图尺寸  cover 完全铺满容器  contain 完整显示在容器内 */
+    background: url(../images/bg.jpg) no-repeat;
+    /*background-color: #080e4d;*/
+    background-size: cover;
+    /* 行高是字体1.15倍 */
+    line-height: 1.15;
+}
+
+.diy-header {
+    background: url(../images/head_bg.png);
+    margin: 0 auto 0;
+}
+
+/*仪表块-边缘等样式*/
+.diy-panel {
+    border: 0.05rem solid rgba(25, 186, 139, 0.17);
+}
+
+h1 {
+    font-size: 1rem;
+    font-weight: bolder;
+    color: #ffffff;
+    text-align: center;
+    line-height: 1rem;
+}
+
+h2 {
+    font-size: 0.5rem;
+    color: #ffffff;
+    text-align: center;
+    line-height: 0.5rem;
+}
+
+.diy-chart{
+    position: absolute;
+    top: 1rem;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.diy-chart-no-title{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.diy-h-1 {
+   height: 1rem;
+}
+.diy-h-2 {
+    height: 2rem;
+}
+.diy-h-3 {
+    height: 3rem;
+}
+.diy-h-4 {
+    height: 4rem;
+}
+.diy-h-5 {
+    height: 5rem;
+}
+.diy-h-6 {
+    height: 6rem;
+}
+.diy-h-7 {
+    height: 7rem;
+}
+.diy-h-8 {
+    height: 8rem;
+}
+.diy-h-9 {
+    height: 9rem;
+}
+.diy-h-10 {
+    height: 10rem;
+}
+.diy-h-11 {
+    height: 11rem;
+}
+.diy-h-12 {
+    height: 12rem;
+}
+.diy-h-13 {
+    height: 13rem;
+}
+.diy-h-14 {
+    height: 14rem;
+}
+.diy-h-15 {
+    height: 15rem;
+}
+.diy-h-16 {
+    height: 16rem;
+}
+.diy-h-17 {
+    height: 17rem;
+}
+.diy-h-18 {
+    height: 18rem;
+}
+.diy-h-19 {
+    height: 19rem;
+}
+.diy-h-20 {
+    height: 20rem;
+}
