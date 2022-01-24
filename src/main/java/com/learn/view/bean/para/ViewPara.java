@@ -8,6 +8,7 @@ import java.util.Map;
 @Data
 public class ViewPara {
     String title;
+    String theme;
     Map<String, String> charts;
     List<ChartPara> chartParas;
     String jsonPara;

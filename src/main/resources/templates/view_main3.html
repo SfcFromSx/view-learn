@@ -5,13 +5,19 @@
     <title>Title</title>
 	<link rel="stylesheet" type="text/css" media="all" th:href="@{/lib/bootstrap-3.4.1/css/bootstrap.min.css}">
 	<link rel="stylesheet" type="text/css" media="all" th:href="@{/css/view.css}">
+	<!--	基础组件-->
 	<script type="text/javascript" th:src="@{/js/flexible.js}"></script>
 	<script type="text/javascript" th:src="@{/lib/jquery/jquery.min.js}"></script>
 	<!--	图表组件-->
 	<script type="text/javascript" th:src="@{/echart/js/echarts.min.js}"></script>
 	<script type="text/javascript" th:src="@{/echart/js/echarts-wordcloud.min.js}"></script>
 	<script type="text/javascript" th:src="@{/echart/js/echarts-liquidfill.min.js}"></script>
-	<script type="text/javascript" th:src="@{/echart/js/charts/chartTemplate.js}"></script>
+	<!--	加载主题-->
+	<script type="text/javascript" th:src="@{/echart/js/theme/chalk.js}"></script>
+	<script type="text/javascript" th:src="@{/echart/js/theme/customed.js}"></script>
+	<script type="text/javascript" th:src="@{/echart/js/theme/dark.js}"></script>
+	<!--	初始化-->
+	<script type="text/javascript" th:src="@{/js/init.js}"></script>
 </head>
 <body>
 	<div class="container-fluid">

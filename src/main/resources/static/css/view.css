@@ -1,17 +1,21 @@
 body {
+    background-color: #b0b425;
+}
+
+.diy-body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
     /*  背景图定位 / 背景图尺寸  cover 完全铺满容器  contain 完整显示在容器内 */
-    background: url(../images/bg.jpg) no-repeat;
-    /*background-color: #080e4d;*/
+    /*background: url(../images/bg.jpg) no-repeat;*/
     background-size: cover;
     /* 行高是字体1.15倍 */
     line-height: 1.15;
 }
 
 .diy-header {
-    background: url(../images/head_bg.png);
+    /*background: url(../images/head_bg.png);*/
+    /*opacity: 0.5;*/
     margin: 0 auto 0;
 }
 
