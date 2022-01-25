@@ -19,11 +19,108 @@
 	<!--	初始化-->
 	<script type="text/javascript" th:src="@{/js/init.js}"></script>
 </head>
-<body>
+<body style="background-color: #c2cdd0">
 	<div class="container-fluid">
+		<div class="row clearfix">
+			<div class="col-md-12 diy-h-1 diy-panel column">
+				<h2 style="color: #113e6e; font-size: 28px; font-weight: bolder;">图表可视化编辑</h2>
+			</div>
+			<div class="col-md-12 diy-h-1 diy-panel column">
+				<ul class="nav nav-pills">
+					<li role="presentation" class="active"><a href="#">option</a></li>
+					<li role="presentation"><a href="#">template</a></li>
+					<li role="presentation"><a href="#">chart</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row clearfix">
+			<div class="col-md-6 diy-h-15 column">
+				<div class="row clearfix">
+					<div class="col-md-12 diy-h-15 diy-panel-no-border column">
+						<textarea class="form-control" style="width:100%; height:15rem">在此输入option配置</textarea>
+					</div>
+					<div class="col-md-12 diy-h-15 diy-panel-no-border column hide">
+						<textarea class="form-control" style="width:100%; height:15rem">在此输入图表配置</textarea>
+					</div>
+					<div class="col-md-12 diy-h-15 diy-panel-no-border column hide">
+						<textarea class="form-control" style="width:100%; height:15rem">在此输入视图配置</textarea>
+					</div>
+				</div>
+				<div class="row clearfix">
+					<div class="col-md-4 diy-h-1 diy-panel column">
+						<select id="theme-select" class="form-control">
+							<option>dark</option>
+							<option>chalk</option>
+							<option>customed</option>
+						</select>
+					</div>
+					<div class="col-md-5 diy-h-1 diy-panel column">
+						<div id="option-panel" class="input-group">
+							<span class="input-group-addon">option</span>
+							<input type="text" class="form-control" placeholder="输入option名称">
+						</div>
+						<div id="template-panel" class="input-group hide">
+							<span class="input-group-addon">template</span>
+							<input type="text" class="form-control" placeholder="输入template名称">
+						</div>
+						<div id="chart-panel" class="input-group hide">
+							<span class="input-group-addon">chart</span>
+							<input type="text" class="form-control" placeholder="输入chart名称">
+						</div>
+					</div>
+					<div class="col-md-3 diy-h-1 diy-panel column">
+						<button id="query" type="button" class="btn btn-default btn-primary">查询</button>
+						<button id="preview" type="button" class="btn btn-default btn-danger">预览</button>
+						<button id="save" type="button" class="btn btn-default btn-warning">保存</button>
+					</div>
+				</div>
+			</div>
+			<div id="viewPanel" class="col-md-6 diy-h-16 diy-panel column">
+			</div>
+		</div>
 	</div>
 	<script th:inline="javascript">
-		templateInit([[${para.jsonPara}]]);
+		let currentModel = "option";
+		let index = 0;
+		$("li").click(function () {
+			index = $(this).index();
+			currentModel = this.textContent;
+			$("li").removeClass("active");
+			$(this).addClass("active");
+			$(".diy-panel-no-border").addClass("hide").eq(index).removeClass("hide");
+			$(".input-group").addClass("hide").eq(index).removeClass("hide");
+		});
+
+		$("#query").click(function () {
+			alert("待补充query");
+		});
+
+		$("#preview").click(function () {
+			doPreview();
+		});
+
+		$("#save").click(function () {
+			alert("待补充save");
+		});
+
+		$("#theme-select").change(function () {
+			doPreview();
+		});
+
+		function doPreview() {
+			let value = $("textarea").eq(index).val();
+			switch (currentModel){
+				case "option":
+					let div = $("#viewPanel").eq(0)[0];
+					let theme = $("#theme-select").val();
+					previewChartInit(div, theme, value);
+					break;
+				case "template":
+					break;
+				case "chart":
+					break;
+			}
+		}
 	</script>
 </body>
 </html>

@@ -87,10 +87,36 @@ function chartInit(div, para) {
     });
 }
 
+let previewChart = null;
+function previewChartInit(div, theme, optionStr) {
+    let option
+    try {
+        option = $.parseJSON(optionStr);
+        if (previewChart) {
+            previewChart.dispose();
+        }
+        previewChart = echarts.init(div, theme);
+        const para = {frequency: 5000, dataUrl: "http://localhost:8080/learn/view/extract/funnel"};
+        // updateByAjax(option, para, function (newData) {
+        //     for (let i = 0; i < newData.length && i < option.series.length; i++) {
+        //         option.series[i].data = newData[i];
+        //     }
+        //     option && previewChart.setOption(option);
+        // });
+        option && previewChart.setOption(option);
+    }catch (e) {
+        alert("option格式错误，请检查");
+    }
+}
+
+let preViewClock = null;
 function updateByAjax(option, para, callBack) {
     console.log('init');
+    if(preViewClock) {
+        clearInterval(preViewClock);
+    }
     update();
-    setInterval(update, para['frequency']);
+    preViewClock = setInterval(update, para['frequency']);
     function update() {
         $.ajax({
             url: para['dataUrl'],
