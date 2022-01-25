@@ -4,12 +4,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.learn.view.bean.para.ChartPara;
 import com.learn.view.bean.para.ViewPara;
 import com.learn.view.data.H2DataSource;
+import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.thymeleaf.util.StringUtils;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -52,6 +55,11 @@ public class ViewController {
         return "view_2p3";
     }
 
+    @RequestMapping("/learn/view/chartDiy")
+    public String viewModelOf2p3(Model model) throws Exception {
+        return "chart_diy";
+    }
+
     private ViewPara getTemplateParaById(String templateId) throws Exception {
         String value = H2DataSource.queryParaByKey(templateId);
         if (StringUtils.isEmpty(value)) {
@@ -62,6 +70,7 @@ public class ViewController {
         for (Map.Entry<String, String> entryMap : viewPara1.getCharts().entrySet()) {
             ChartPara chartPara = getChartParaById(entryMap.getValue());
             chartPara.setLocation(entryMap.getKey());
+            chartPara.setOptionJson(getOptionJson(chartPara.getChartType()));
             chartParas.add(chartPara);
         }
         viewPara1.setChartParas(chartParas);
@@ -72,5 +81,17 @@ public class ViewController {
     private ChartPara getChartParaById(String chartId) throws Exception {
         String value = H2DataSource.queryParaByKey(chartId);
         return new ObjectMapper().readValue(value, ChartPara.class);
+    }
+
+    private String getOptionJson(String chartType) throws IOException {
+        String basePath = "classpath:static/json/";
+        try {
+            return FileUtils.readFileToString(
+                    ResourceUtils.getFile(basePath + chartType + ".json")
+                    , "utf-8"
+            );
+        } catch (Exception e) {
+            return "";
+        }
     }
 }

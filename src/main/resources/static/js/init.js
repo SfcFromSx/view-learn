@@ -73,9 +73,8 @@ function themeInit(theme) {
 }
 
 function chartInit(div, para) {
-    const type = para['chartType'];
     const myChart = echarts.init(div, para['theme']);
-    const option = getOptionByType(type);
+    const option = JSON.parse(para['optionJson']);
     updateByAjax(option, para, function (newData) {
         console.log(newData);
         for (let i = 0; i < newData.length && i <  option.series.length; i++) {
@@ -105,92 +104,3 @@ function updateByAjax(option, para, callBack) {
         });
     }
 }
-
-function getOptionByType(type) {
-    switch (type) {
-        case "pie":
-            return pieOption;
-        case "stack":
-            return stackOption;
-    }
-}
-
-const stackOption = {
-    tooltip: {
-        trigger: 'axis',
-        axisPointer: {
-            // Use axis to trigger tooltip
-            type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
-        }
-    },
-    legend: {},
-    grid: {
-        left: '3%',
-        right: '4%',
-        bottom: '3%',
-        containLabel: true
-    },
-    xAxis: {
-        type: 'value'
-    },
-    yAxis: {
-        type: 'category',
-        data: ['类别1', '类别2', '类别3', '类别4', '类别5']
-    },
-    series: [
-        {
-            name: 'num1',
-            type: 'bar',
-            stack: 'total',
-        },
-        {
-            name: 'num2',
-            type: 'bar',
-            stack: 'total',
-        },
-        {
-            name: 'num3',
-            type: 'bar',
-            stack: 'total',
-        },
-        {
-            name: 'num4',
-            type: 'bar',
-            stack: 'total',
-        },
-        {
-            name: 'num5',
-            type: 'bar',
-            stack: 'total',
-        }
-    ]
-};
-
-const pieOption = {
-    // title: {
-    //     text: 'Weather Statistics',
-    //     subtext: 'Fake Data',
-    //     left: 'center'
-    // },
-    tooltip: {
-        trigger: 'item',
-        formatter: '{a} <br/>{b} : {c} ({d}%)'
-    },
-    legend: {
-        left: 'center',
-    },
-    series: [
-        {
-            type: 'pie',
-            radius: '65%',
-            selectedMode: 'single',
-            emphasis: {
-                itemStyle: {
-                    shadowBlur: 10,
-                    shadowOffsetX: 0,
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                }
-            }
-        }
-    ]
-};

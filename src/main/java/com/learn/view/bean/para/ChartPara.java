@@ -9,4 +9,5 @@ public class ChartPara {
     String chartType;
     String dataUrl;
     Integer frequency;
+    String optionJson;
 }
