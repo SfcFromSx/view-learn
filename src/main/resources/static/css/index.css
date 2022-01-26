@@ -1,0 +1,46 @@
+body,
+div,
+ul,
+li,
+p {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+body {
+    padding-top: 20px;
+}
+.flex {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.btn-box {
+    margin: 0 20px;
+    padding-top: 100px;
+}
+.btn-box button {
+    padding: 10px 20px;
+    border: 1px solid #a4a4a4;
+    border-radius: 5px;
+    background: #eee;
+}
+.btn-box .json-btn {
+    margin-bottom: 20px;
+}
+.code-btn-box {
+    text-align: right;
+    margin-top: 20px;
+}
+.code-btn-box button {
+    padding: 10px 20px;
+    border: 1px solid #a4a4a4;
+    border-radius: 5px;
+    background: #eee;
+}
+.code-btn-box .save-btn {
+    border: 1px #f60 solid;
+    background: #ffc88b;
+    color: #f15214;
+    margin-left: 20px;
+}

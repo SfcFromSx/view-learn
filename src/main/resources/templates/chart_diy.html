@@ -18,14 +18,22 @@
 	<script type="text/javascript" th:src="@{/echart/js/theme/dark.js}"></script>
 	<!--	初始化-->
 	<script type="text/javascript" th:src="@{/js/init.js}"></script>
+	<!-- JSON编辑页面-->
+	<link href="https://cdn.bootcss.com/jsoneditor/5.13.1/jsoneditor.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jsoneditor/5.13.1/jsoneditor.min.js"></script>
+    <script src="https://cdn.bootcss.com/ace/1.2.9/ace.js"></script>
+    <script src="https://cdn.bootcss.com/jsonlint/1.6.0/jsonlint.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/index.css}">
+    <script type="text/javascript" th:src="@{/js/index.js}"></script>
+    <script type="text/javascript" th:src="@{/js/flexible.js}"></script>
 </head>
-<body style="background-color: #c2cdd0">
+<body style="background-color: #edf1f3">
 	<div class="container-fluid">
 		<div class="row clearfix">
-			<div class="col-md-12 diy-h-1 diy-panel column">
-				<h2 style="color: #113e6e; font-size: 28px; font-weight: bolder;">图表可视化编辑</h2>
+			<div class="col-md-12 diy-h-1 column" style="background-color: #0c4ec9">
+				<h2 style="color: #e0e7ee; font-size: 28px; font-weight: bolder;">图表可视化编辑</h2>
 			</div>
-			<div class="col-md-12 diy-h-1 diy-panel column">
+			<div class="col-md-12 diy-h-1 column" style="background-color: #0c4ec9">
 				<ul class="nav nav-pills">
 					<li role="presentation" class="active"><a href="javascript:">option</a></li>
 					<li role="presentation"><a href="javascript:">template</a></li>
@@ -37,18 +45,73 @@
 			<div class="col-md-6 diy-h-15 column">
 				<div class="row clearfix">
 					<div class="col-md-12 diy-h-15 diy-panel-no-border column">
-						<textarea class="form-control" style="width:100%; height:15rem">在此输入option配置</textarea>
+						<div class="flex">
+							<div style="width: 46%;">
+								<p class="title-text">code</p>
+								<div id="codeEditor0" style="width: 100%; height: 700px;"></div>
+							</div>
+							<ul class="btn-box" style="width: 10%;">
+								<button id="jsonBtn0" class="json-btn" type="button">视图 >></button>
+								<button id="codeBtn0" type="button"><< 代码</button>
+							</ul>
+							<div style="width: 44%;">
+								<p class="title-text">JSON</p>
+								<div id="jsonEditor0" style="width: 100%; height: 700px;"></div>
+							</div>
+						</div>
 					</div>
 					<div class="col-md-12 diy-h-15 diy-panel-no-border column hide">
-						<textarea class="form-control" style="width:100%; height:15rem">在此输入图表配置</textarea>
+						<div class="flex">
+							<div style="width: 46%;">
+								<p class="title-text">code</p>
+								<div id="codeEditor1" style="width: 100%; height: 700px;"></div>
+							</div>
+							<ul class="btn-box">
+								<li>
+									<button id="jsonBtn1" class="json-btn" type="button">视图 >></button>
+								</li>
+								<li>
+									<button id="codeBtn1" type="button"><< 代码</button>
+								</li>
+							</ul>
+							<div style="width: 40%;">
+								<p class="title-text">JSON</p>
+								<div id="jsonEditor1" style="width: 100%; height: 700px;"></div>
+							</div>
+						</div>
 					</div>
 					<div class="col-md-12 diy-h-15 diy-panel-no-border column hide">
-						<textarea class="form-control" style="width:100%; height:15rem">在此输入视图配置</textarea>
+						<div class="flex">
+							<div style="width: 46%;">
+								<p class="title-text">code</p>
+								<div id="codeEditor2" style="width: 100%; height: 700px;"></div>
+							</div>
+							<ul class="btn-box">
+								<li>
+									<button id="jsonBtn2" class="json-btn" type="button">视图 >></button>
+								</li>
+								<li>
+									<button id="codeBtn2" type="button"><< 代码</button>
+								</li>
+							</ul>
+							<div style="width: 40%;">
+								<p class="title-text">JSON</p>
+								<div id="jsonEditor2" style="width: 100%; height: 700px;"></div>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="row clearfix">
 					<div class="col-md-4 diy-h-1 diy-panel column">
-						<select id="theme-select" class="form-control">
+						<select class="form-control panel-select">
+							<option>dark</option>
+							<option>chalk</option>
+							<option>customed</option>
+						</select>
+						<select class="form-control panel-select hide">
+							<option>main3</option>
+						</select>
+						<select class="form-control panel-select hide">
 							<option>dark</option>
 							<option>chalk</option>
 							<option>customed</option>
@@ -71,57 +134,17 @@
 					<div class="col-md-3 diy-h-1 diy-panel column">
 						<button id="query" type="button" class="btn btn-default btn-primary">查询</button>
 						<button id="preview" type="button" class="btn btn-default btn-danger">预览</button>
-						<button id="save" type="button" class="btn btn-default btn-warning">保存</button>
+						<button id="saveConfig" type="button" class="btn btn-default btn-warning">保存</button>
 					</div>
 				</div>
 			</div>
-			<div id="viewPanel" class="col-md-6 diy-h-16 diy-panel column">
+			<div class="col-md-6 diy-h-16 diy-panel column viewPanel">
+			</div>
+			<div class="col-md-6 diy-h-16 diy-panel column viewPanel hide">
+			</div>
+			<div class="col-md-6 diy-h-16 diy-panel column viewPanel hide">
 			</div>
 		</div>
 	</div>
-	<script th:inline="javascript">
-		let currentModel = "option";
-		let index = 0;
-		$("li").click(function () {
-			index = $(this).index();
-			currentModel = this.textContent;
-			$("li").removeClass("active");
-			$(this).addClass("active");
-			$(".diy-panel-no-border").addClass("hide").eq(index).removeClass("hide");
-			$(".input-group").addClass("hide").eq(index).removeClass("hide");
-		});
-
-		$("#query").click(function () {
-			alert("待补充query");
-		});
-
-		$("#preview").click(function () {
-			doPreview();
-		});
-
-		$("#save").click(function () {
-			alert("待补充save");
-		});
-
-		$("#theme-select").change(function () {
-			doPreview();
-		});
-
-		function doPreview() {
-			let value = $("textarea").eq(index).val();
-			let div = $("#viewPanel").eq(0)[0];
-			let theme = $("#theme-select").val();
-			switch (currentModel){
-				case "option":
-					previewOptionInit(div, value, theme);
-					break;
-				case "template":
-					break;
-				case "chart":
-					previewChartInit(div, value, theme);
-					break;
-			}
-		}
-	</script>
 </body>
 </html>

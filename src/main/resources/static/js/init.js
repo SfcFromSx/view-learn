@@ -72,15 +72,25 @@ function themeInit(theme) {
     $("h2").css("color", h2Color);
 }
 
-let previewChart;
 function chartInit(div, para) {
+    const chart = echarts.init(div, para['theme']);
+    const option = JSON.parse(para['optionJson']);
+    updateByAjax(option, para, function (newData) {
+        for (let i = 0; i < newData.length && i <  option.series.length; i++) {
+            option.series[i].data = newData[i];
+        }
+        option && chart.setOption(option);
+    });
+}
+
+let previewChart;
+function preChartInit(div, para) {
     if (previewChart) {
         previewChart.dispose();
     }
     previewChart = echarts.init(div, para['theme']);
     const option = JSON.parse(para['optionJson']);
-    updateByAjax(option, para, function (newData) {
-        console.log(newData);
+    previewUpdateByAjax(option, para, function (newData) {
         for (let i = 0; i < newData.length && i <  option.series.length; i++) {
             option.series[i].data = newData[i];
         }
@@ -88,23 +98,16 @@ function chartInit(div, para) {
     });
 }
 
-let previewOption = null;
+let previewOption;
 function previewOptionInit(div, optionStr, theme) {
+    if (previewOption) {
+        previewOption.dispose();
+    }
     let option
     try {
         option = $.parseJSON(optionStr);
-        if (previewOption) {
-            previewOption.dispose();
-        }
         previewOption = echarts.init(div, theme);
-        const para = {frequency: 5000, dataUrl: "http://localhost:8080/learn/view/extract/funnel"};
-        // updateByAjax(option, para, function (newData) {
-        //     for (let i = 0; i < newData.length && i < option.series.length; i++) {
-        //         option.series[i].data = newData[i];
-        //     }
-        //     option && previewChart.setOption(option);
-        // });
-        option && previewChart.setOption(option);
+        option && previewOption.setOption(option);
     }catch (e) {
         alert("option格式错误，请检查");
     }
@@ -121,7 +124,7 @@ function previewChartInit(div, value, theme) {
             dataType: "JSON",
             success: function(config) {
                 para['optionJson'] = JSON.stringify(config);
-                chartInit(div, para);
+                preChartInit(div, para);
             }
         });
     } catch (e) {
@@ -131,7 +134,7 @@ function previewChartInit(div, value, theme) {
 }
 
 let preViewClock = null;
-function updateByAjax(option, para, callBack) {
+function previewUpdateByAjax(option, para, callBack) {
     console.log('init');
     if(preViewClock) {
         clearInterval(preViewClock);
@@ -151,3 +154,20 @@ function updateByAjax(option, para, callBack) {
         });
     }
 }
+
+function updateByAjax(option, para, callBack) {
+    update();
+    setInterval(update, para['frequency']);
+    function update() {
+        $.ajax({
+            url: para['dataUrl'],
+            data: {},
+            type: "GET",
+            dataType: "JSON",
+            success: function(newData) {
+                callBack(newData);
+            }
+        });
+    }
+}
+
