@@ -72,30 +72,31 @@ function themeInit(theme) {
     $("h2").css("color", h2Color);
 }
 
+let previewChart;
 function chartInit(div, para) {
-    const myChart = echarts.init(div, para['theme']);
+    if (previewChart) {
+        previewChart.dispose();
+    }
+    previewChart = echarts.init(div, para['theme']);
     const option = JSON.parse(para['optionJson']);
     updateByAjax(option, para, function (newData) {
         console.log(newData);
         for (let i = 0; i < newData.length && i <  option.series.length; i++) {
             option.series[i].data = newData[i];
         }
-        option && myChart.setOption(option);
-    });
-    window.addEventListener("resize", function() {
-        myChart.resize();
+        option && previewChart.setOption(option);
     });
 }
 
-let previewChart = null;
-function previewChartInit(div, theme, optionStr) {
+let previewOption = null;
+function previewOptionInit(div, optionStr, theme) {
     let option
     try {
         option = $.parseJSON(optionStr);
-        if (previewChart) {
-            previewChart.dispose();
+        if (previewOption) {
+            previewOption.dispose();
         }
-        previewChart = echarts.init(div, theme);
+        previewOption = echarts.init(div, theme);
         const para = {frequency: 5000, dataUrl: "http://localhost:8080/learn/view/extract/funnel"};
         // updateByAjax(option, para, function (newData) {
         //     for (let i = 0; i < newData.length && i < option.series.length; i++) {
@@ -106,6 +107,26 @@ function previewChartInit(div, theme, optionStr) {
         option && previewChart.setOption(option);
     }catch (e) {
         alert("option格式错误，请检查");
+    }
+}
+
+function previewChartInit(div, value, theme) {
+    var para = JSON.parse(value);
+    para['theme'] = theme;
+    try {
+        $.ajax({
+            url: "http://localhost:8080/learn/view/config/option/" + para['chartType'],
+            data: {},
+            type: "GET",
+            dataType: "JSON",
+            success: function(config) {
+                para['optionJson'] = JSON.stringify(config);
+                chartInit(div, para);
+            }
+        });
+    } catch (e) {
+        console.log(e);
+        alert("图表参数错误，请检查");
     }
 }
 

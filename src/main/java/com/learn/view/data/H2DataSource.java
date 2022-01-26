@@ -1,7 +1,10 @@
 package com.learn.view.data;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Component;
+import org.springframework.util.ResourceUtils;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -30,6 +33,18 @@ public class H2DataSource {
             return null;
         }catch (Exception e) {
             return null;
+        }
+    }
+
+    public static String getOptionJson(String chartType) throws IOException {
+        String basePath = "classpath:static/json/";
+        try {
+            return FileUtils.readFileToString(
+                    ResourceUtils.getFile(basePath + chartType + ".json")
+                    , "utf-8"
+            );
+        } catch (Exception e) {
+            return "";
         }
     }
 }

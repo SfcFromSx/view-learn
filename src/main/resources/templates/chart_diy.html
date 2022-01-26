@@ -27,9 +27,9 @@
 			</div>
 			<div class="col-md-12 diy-h-1 diy-panel column">
 				<ul class="nav nav-pills">
-					<li role="presentation" class="active"><a href="#">option</a></li>
-					<li role="presentation"><a href="#">template</a></li>
-					<li role="presentation"><a href="#">chart</a></li>
+					<li role="presentation" class="active"><a href="javascript:">option</a></li>
+					<li role="presentation"><a href="javascript:">template</a></li>
+					<li role="presentation"><a href="javascript:">chart</a></li>
 				</ul>
 			</div>
 		</div>
@@ -109,15 +109,16 @@
 
 		function doPreview() {
 			let value = $("textarea").eq(index).val();
+			let div = $("#viewPanel").eq(0)[0];
+			let theme = $("#theme-select").val();
 			switch (currentModel){
 				case "option":
-					let div = $("#viewPanel").eq(0)[0];
-					let theme = $("#theme-select").val();
-					previewChartInit(div, theme, value);
+					previewOptionInit(div, value, theme);
 					break;
 				case "template":
 					break;
 				case "chart":
+					previewChartInit(div, value, theme);
 					break;
 			}
 		}

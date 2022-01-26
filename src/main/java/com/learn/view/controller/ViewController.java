@@ -70,7 +70,7 @@ public class ViewController {
         for (Map.Entry<String, String> entryMap : viewPara1.getCharts().entrySet()) {
             ChartPara chartPara = getChartParaById(entryMap.getValue());
             chartPara.setLocation(entryMap.getKey());
-            chartPara.setOptionJson(getOptionJson(chartPara.getChartType()));
+            chartPara.setOptionJson(H2DataSource.getOptionJson(chartPara.getChartType()));
             chartParas.add(chartPara);
         }
         viewPara1.setChartParas(chartParas);
@@ -83,15 +83,4 @@ public class ViewController {
         return new ObjectMapper().readValue(value, ChartPara.class);
     }
 
-    private String getOptionJson(String chartType) throws IOException {
-        String basePath = "classpath:static/json/";
-        try {
-            return FileUtils.readFileToString(
-                    ResourceUtils.getFile(basePath + chartType + ".json")
-                    , "utf-8"
-            );
-        } catch (Exception e) {
-            return "";
-        }
-    }
 }
