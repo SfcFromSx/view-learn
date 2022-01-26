@@ -1,6 +1,6 @@
-body {
-    background-color: #b0b425;
-}
+/*body {*/
+/*    background-color: #e1eee2;*/
+/*}*/
 
 .diy-body {
     font-family: Arial, Helvetica, sans-serif;
@@ -22,6 +22,10 @@ body {
 /*仪表块-边缘等样式*/
 .diy-panel {
     border: 0.05rem solid rgba(25, 186, 139, 0.17);
+}
+
+.diy-panel-no-border {
+    rgba(25, 186, 139, 0.17);
 }
 
 h1 {
