@@ -1,0 +1,6 @@
+{
+  "chartTitle": "水球图示例",
+  "chartType": "liquidFill",
+  "dataUrl": "http://localhost:8080/learn/view/extract/liquidFill",
+  "frequency": "5000"
+}

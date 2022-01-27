@@ -1,0 +1,33 @@
+{
+  "tooltip": {
+    "show": true
+  },
+  "series": [
+    {
+      "type": "wordCloud",
+      "rotationRange": [
+        0,
+        0
+      ],
+      "gridSize": 30,
+      "shape": "diamond",
+      "sizeRange": [
+        20,
+        60
+      ],
+      "width": 600,
+      "height": 300,
+      "textStyle": {
+        "normal": {
+          "fontFamily": "微软雅黑",
+          "fontWeight": "bold",
+          "color": "#ff7f50"
+        },
+        "emphasis": {
+          "shadowBlur": 10,
+          "shadowColor": "#333"
+        }
+      }
+    }
+  ]
+}

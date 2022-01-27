@@ -1,0 +1,24 @@
+{
+  "xAxis": {
+    "type": "category",
+    "data": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri"
+    ]
+  },
+  "yAxis": {
+    "type": "value"
+  },
+  "series": [
+    {
+      "type": "bar",
+      "showBackground": true,
+      "backgroundStyle": {
+        "color": "rgba(180, 180, 180, 0.2)"
+      }
+    }
+  ]
+}

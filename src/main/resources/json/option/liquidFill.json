@@ -1,0 +1,18 @@
+{
+  "series": [
+    {
+      "backgroundStyle": {
+        "borderWidth": 0
+      },
+      "label": {
+        "show": true,
+        "fontSize": 40
+      },
+      "outline": {
+        "borderDistance": 0
+      },
+      "type": "liquidFill",
+      "radius": "80%"
+    }
+  ]
+}

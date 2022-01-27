@@ -17,3 +17,4 @@ m3customed	{   "title": "业务管控平台-主屏3号",  "theme":"customed",  "
 m3dark	{   "title": "业务管控平台-主屏3号",  "theme":"dark",  "charts": {     "left1": "wordcloud1",     "left2": "liquidFill1",     "left3": "funnel2",      "middle1": "stack1",   "middle2": "pie1" ,   "right1": "stackArea1",     "right2": "tree1"} }
 m3dark1	{   "title": "业务管控平台-主屏3号",  "theme":"dark",  "charts": {     "left1": "pie1",     "left2": "pie1",     "left3": "pie1",      "middle1": "pie1",   "middle2": "pie1" ,   "right1": "pie1",     "right2": "pie1"} }
 m3dak2	{   "title": "业务管控平台-主屏3号",  "theme":"dark",  "charts": {     "left1": "pie1",     "left2": "stack1",     "left3": "pie1",      "middle1": "pie1",   "middle2": "pie1" ,   "right1": "pie1",     "right2": "pie1"} }
+m3dark3 {"title":"业务管控平台-主屏3号","theme":"dark","charts":{"left1":"bar1","left2":"line1","left3":"stack1","middle1":"wordCloud1","middle2":"map1","right1":"gauge1","right2":"funnel1"}}

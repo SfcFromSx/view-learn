@@ -1,0 +1,58 @@
+{
+  "tooltip": {
+    "trigger": "axis"
+  },
+  "legend": {},
+  "grid": {
+    "left": "3%",
+    "right": "4%",
+    "bottom": "3%",
+    "containLabel": true
+  },
+  "toolbox": {
+    "feature": {
+      "saveAsImage": {}
+    }
+  },
+  "xAxis": {
+    "type": "category",
+    "boundaryGap": false,
+    "data": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri"
+    ]
+  },
+  "yAxis": {
+    "type": "value"
+  },
+  "series": [
+    {
+      "name": "Email",
+      "type": "line",
+      "stack": "Total"
+    },
+    {
+      "name": "Union Ads",
+      "type": "line",
+      "stack": "Total"
+    },
+    {
+      "name": "Video Ads",
+      "type": "line",
+      "stack": "Total"
+    },
+    {
+      "name": "Direct",
+      "type": "line",
+      "stack": "Total"
+    },
+    {
+      "name": "Search Engine",
+      "type": "line",
+      "stack": "Total"
+    }
+  ]
+}
