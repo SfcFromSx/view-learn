@@ -56,7 +56,7 @@ public class H2DataSource {
 
 
     private static ChartPara getChartParaById(String chartId) throws Exception {
-        String value = H2DataSource.queryParaByKey(chartId);
+        String value = getConfigJson("chart", chartId);
         return new ObjectMapper().readValue(value, ChartPara.class);
     }
 
