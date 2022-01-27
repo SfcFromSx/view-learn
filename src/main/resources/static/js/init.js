@@ -52,15 +52,17 @@ function viewInit(initPara) {
 
 function themeInit(theme) {
     // 初始化背景色、标题、边框
-    let bodyColor, h2Color;
+    let bodyColor, h2Color, borderColor;
     switch (theme) {
         case "chalk":
             bodyColor = "rgba(20,26,83,1)";
-            h2Color = "#ffffff";
+            h2Color = "#beb4b4";
+            borderColor = "rgb(31,38,105)";
             break;
         case "dark":
             bodyColor = "rgba(51,51,51,1)";
-            h2Color = "#ffffff";
+            h2Color = "#beb4b4";
+            borderColor = "rgb(93,93,93)";
             break;
         case "customed":
             bodyColor = "rgba(0, 0, 0, 0)";
@@ -70,6 +72,7 @@ function themeInit(theme) {
     $("body").css("backgroundColor", bodyColor);
     $("h1").css("color", h2Color);
     $("h2").css("color", h2Color);
+    $(".diy-panel").css("color", h2Color);
 }
 
 function chartInit(div, para) {
@@ -142,6 +145,10 @@ function previewUpdateByAjax(option, para, callBack) {
     update();
     preViewClock = setInterval(update, para['frequency']);
     function update() {
+        if (para['dataUrl'] === '') {
+            callBack({});
+            return;
+        }
         $.ajax({
             url: para['dataUrl'],
             data: {},
@@ -159,6 +166,10 @@ function updateByAjax(option, para, callBack) {
     update();
     setInterval(update, para['frequency']);
     function update() {
+        if (para['dataUrl'] === '') {
+            callBack({});
+            return;
+        }
         $.ajax({
             url: para['dataUrl'],
             data: {},

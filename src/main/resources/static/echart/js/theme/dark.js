@@ -1,3 +1,4 @@
+
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
@@ -129,7 +130,7 @@
             },
             "lineStyle": {
                 "width": 1,
-                "color": "#aaa"
+                "color": "#aaaaaa"
             },
             "symbolSize": 4,
             "symbol": "circle",
@@ -148,7 +149,7 @@
                 "#f49f42"
             ],
             "label": {
-                "color": "#eee"
+                "color": "#eeeeee"
             }
         },
         "map": {
@@ -193,13 +194,13 @@
         },
         "categoryAxis": {
             "axisLine": {
-                "show": true,
+                "show": false,
                 "lineStyle": {
                     "color": "#eeeeee"
                 }
             },
             "axisTick": {
-                "show": true,
+                "show": false,
                 "lineStyle": {
                     "color": "#eeeeee"
                 }
@@ -209,7 +210,7 @@
                 "color": "#eeeeee"
             },
             "splitLine": {
-                "show": true,
+                "show": false,
                 "lineStyle": {
                     "color": [
                         "#aaaaaa"
@@ -227,13 +228,13 @@
         },
         "valueAxis": {
             "axisLine": {
-                "show": true,
+                "show": false,
                 "lineStyle": {
                     "color": "#eeeeee"
                 }
             },
             "axisTick": {
-                "show": true,
+                "show": false,
                 "lineStyle": {
                     "color": "#eeeeee"
                 }
@@ -243,7 +244,7 @@
                 "color": "#eeeeee"
             },
             "splitLine": {
-                "show": true,
+                "show": false,
                 "lineStyle": {
                     "color": [
                         "#aaaaaa"
@@ -261,13 +262,13 @@
         },
         "logAxis": {
             "axisLine": {
-                "show": true,
+                "show": false,
                 "lineStyle": {
                     "color": "#eeeeee"
                 }
             },
             "axisTick": {
-                "show": true,
+                "show": false,
                 "lineStyle": {
                     "color": "#eeeeee"
                 }
@@ -277,7 +278,7 @@
                 "color": "#eeeeee"
             },
             "splitLine": {
-                "show": true,
+                "show": false,
                 "lineStyle": {
                     "color": [
                         "#aaaaaa"
@@ -295,13 +296,13 @@
         },
         "timeAxis": {
             "axisLine": {
-                "show": true,
+                "show": false,
                 "lineStyle": {
                     "color": "#eeeeee"
                 }
             },
             "axisTick": {
-                "show": true,
+                "show": false,
                 "lineStyle": {
                     "color": "#eeeeee"
                 }
@@ -311,7 +312,7 @@
                 "color": "#eeeeee"
             },
             "splitLine": {
-                "show": true,
+                "show": false,
                 "lineStyle": {
                     "color": [
                         "#aaaaaa"
@@ -408,11 +409,11 @@
         },
         "markPoint": {
             "label": {
-                "color": "#eee"
+                "color": "#eeeeee"
             },
             "emphasis": {
                 "label": {
-                    "color": "#eee"
+                    "color": "#eeeeee"
                 }
             }
         }

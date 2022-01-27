@@ -1,0 +1,1 @@
+{"yAxis":{"type":"category","data":["开放","定开","期次","灵动"]},"xAxis":{"type":"value"},"series":[{"data":[120,200,150,80],"type":"bar","showBackground":true,"backgroundStyle":{"color":"rgba(180, 180, 180, 0.2)"}}]}

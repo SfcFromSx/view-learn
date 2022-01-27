@@ -21,7 +21,7 @@
 
 /*仪表块-边缘等样式*/
 .diy-panel {
-    border: 0.05rem solid rgba(25, 186, 139, 0.17);
+    border: 0.05rem solid rgb(116 135 129 / 17%);
 }
 
 .diy-panel-no-border {
@@ -31,14 +31,14 @@
 h1 {
     font-size: 1rem;
     font-weight: bolder;
-    color: #ffffff;
+    color: #beb4b4;
     text-align: center;
     line-height: 1rem;
 }
 
 h2 {
     font-size: 0.5rem;
-    color: #ffffff;
+    color: #beb4b4;
     text-align: center;
     line-height: 0.5rem;
 }
