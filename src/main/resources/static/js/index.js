@@ -17,7 +17,17 @@ window.onload = function(){
     }
 
     $("#query").click(function () {
-        alert("待补充query");
+        const optionId = $(".config-id").eq(index)[0].value;
+        const url = "http://localhost:8080/learn/view/config/query/" + currentModel + '/' + optionId;
+        $.ajax({
+            url: url,
+            data: {},
+            type: "GET",
+            dataType: "JSON",
+            success: function(config) {
+                codeEditor[index].set(config);
+            }
+        });
     });
 
     $("#preview").click(function () {
@@ -25,7 +35,25 @@ window.onload = function(){
     });
 
     $("#saveConfig").click(function () {
-        alert("待补充save");
+        const configId = $(".config-id").eq(index)[0].value;
+        const configValue = JSON.stringify(codeEditor[index].get());
+        $.ajax({
+            url: "http://localhost:8080/learn/view/config/save/" + currentModel + '/' + configId,
+            data: {
+                message : configValue
+            },
+            type: "POST",
+            success: function(rep) {
+                if (rep === 'success') {
+                    alert("保存成功");
+                } else {
+                    alert("保存失败");
+                }
+            },
+            error : function () {
+                alert("访问失败");
+            }
+        });
     });
 
     $(".panel-select").change(function () {
@@ -41,7 +69,7 @@ window.onload = function(){
                 previewOptionInit(div, value, selectValue);
                 break;
             case "template":
-                var url = "http://localhost:8080/learn/view/preview/" + selectValue + '/' + value
+                const url = "http://localhost:8080/learn/view/preview/" + selectValue + '/' + value;
                 window.open(url);
                 break;
             case "chart":

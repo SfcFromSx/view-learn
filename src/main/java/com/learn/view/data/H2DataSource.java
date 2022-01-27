@@ -19,6 +19,7 @@ import java.util.Map;
 
 @Component
 public class H2DataSource {
+    private static String basePath = "src\\main\\resources\\json\\";
     private static Connection connection;
     static {
         try {
@@ -45,7 +46,7 @@ public class H2DataSource {
         for (Map.Entry<String, String> entryMap : viewPara1.getCharts().entrySet()) {
             ChartPara chartPara = getChartParaById(entryMap.getValue());
             chartPara.setLocation(entryMap.getKey());
-            chartPara.setOptionJson(H2DataSource.getOptionJson(chartPara.getChartType()));
+            chartPara.setOptionJson(H2DataSource.getConfigJson("option", chartPara.getChartType()));
             chartParas.add(chartPara);
         }
         viewPara1.setChartParas(chartParas);
@@ -72,15 +73,25 @@ public class H2DataSource {
         }
     }
 
-    public static String getOptionJson(String chartType) throws IOException {
-        String basePath = "classpath:json/option/";
+    public static String getConfigJson(String configType, String configId) throws IOException {
         try {
             return FileUtils.readFileToString(
-                    ResourceUtils.getFile(basePath + chartType + ".json")
+                    ResourceUtils.getFile(basePath + configType + "\\" +  configId + ".json")
                     , "utf-8"
             );
         } catch (Exception e) {
-            return "";
+            return "查询失败";
         }
     }
+
+    public static void saveOptionJson(String configType, String optionId, String optionValue) throws IOException {
+        String path = basePath + configType + "\\" + optionId + ".json";
+        FileUtils.writeStringToFile(
+                FileUtils.getFile(path),
+                optionValue
+                , "utf-8"
+        );
+    }
+
+
 }

@@ -118,7 +118,7 @@ function previewChartInit(div, value, theme) {
     para['theme'] = theme;
     try {
         $.ajax({
-            url: "http://localhost:8080/learn/view/config/option/" + para['chartType'],
+            url: "http://localhost:8080/learn/view/config/query/option/" + para['chartType'],
             data: {},
             type: "GET",
             dataType: "JSON",
