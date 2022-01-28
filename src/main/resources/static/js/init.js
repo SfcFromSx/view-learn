@@ -65,6 +65,7 @@ function themeInit(theme) {
             borderColor = "rgb(93,93,93)";
             break;
         case "customed":
+        default:
             bodyColor = "rgba(0, 0, 0, 0)";
             h2Color = "rgba(51,51,51,1)";
             break;
@@ -219,6 +220,17 @@ function setFunctionByName(object, key) {
                 );
             };
             break;
+        case 'diy_function_life_tip()':
+            object[key] = function (params) {
+                if (params.componentSubType === 'graph') {
+                    var showText = "节点详情" + ' <br/>';
+                    showText += '上一节点：' + params.data.lastUser + ' <br/>';
+                    showText += '处理时间：' + params.data.lastTime + ' <br/>';
+                    showText += '当前节点：' + params.data.currentUser + ' <br/>';
+                    showText += '接受时间：' + params.data.currentTime + ' <br/>';
+                    return showText;
+                }
+            }
         default:
     }
 }
