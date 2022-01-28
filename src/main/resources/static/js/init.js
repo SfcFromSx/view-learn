@@ -77,7 +77,7 @@ function themeInit(theme) {
 
 function chartInit(div, para) {
     const chart = echarts.init(div, para['theme']);
-    const option = JSON.parse(para['optionJson']);
+    const option = parseOptionFromJSON(para['optionJson']);
     updateByAjax(option, para, function (newData) {
         for (let i = 0; i < newData.length && i <  option.series.length; i++) {
             option.series[i].data = newData[i];
@@ -92,7 +92,7 @@ function preChartInit(div, para) {
         previewChart.dispose();
     }
     previewChart = echarts.init(div, para['theme']);
-    const option = JSON.parse(para['optionJson']);
+    const option = parseOptionFromJSON(para['optionJson']);
     previewUpdateByAjax(option, para, function (newData) {
         for (let i = 0; i < newData.length && i <  option.series.length; i++) {
             option.series[i].data = newData[i];
@@ -108,7 +108,7 @@ function previewOptionInit(div, optionStr, theme) {
     }
     let option
     try {
-        option = $.parseJSON(optionStr);
+        option = parseOptionFromJSON(optionStr);
         previewOption = echarts.init(div, theme);
         option && previewOption.setOption(option);
     }catch (e) {
@@ -182,3 +182,43 @@ function updateByAjax(option, para, callBack) {
     }
 }
 
+// ------------------
+// 自定义函数声明与替换
+// ------------------
+function parseOptionFromJSON(optionStr) {
+    let option = JSON.parse(optionStr);
+    replaceDiyFunction(option);
+    return option;
+}
+
+
+const colors = [
+    '#ff7f50', '#87cefa', '#da70d6', '#32cd32', '#6495ed',
+    '#1e90ff', '#bfc755', 'rgba(154,97,215,0.98)', '#ffd700',
+];
+
+function replaceDiyFunction(obj) {
+    for (let key in obj) {
+        if (typeof obj[key] === 'string' && obj[key].startsWith("diy_function")) {
+            setFunctionByName(obj, key);
+        }
+        if (typeof obj[key] === 'object') {
+            replaceDiyFunction(obj[key]);
+        }
+    }
+}
+
+function setFunctionByName(object, key) {
+    switch (object[key]) {
+        case 'diy_function_randomColor()':
+            object[key] = function () {
+                const max = colors.length - 1;
+                const min = 0;
+                return (
+                    colors[Math.floor(Math.random() * (max - min + 1)) + min]
+                );
+            };
+            break;
+        default:
+    }
+}
