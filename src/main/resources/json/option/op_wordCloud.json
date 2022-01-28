@@ -9,13 +9,13 @@
       "keepAspect": false,
       "left": "center",
       "top": "center",
-      "width": "70%",
-      "height": "80%",
+      "width": "100%",
+      "height": "100%",
       "right": null,
       "bottom": null,
       "sizeRange": [
         20,
-        60
+        80
       ],
       "rotationRange": [
         0,
@@ -38,24 +38,24 @@
       },
       "data": [
         {
-          "name": "交易员1",
+          "name": "张三",
           "value": 123
         },
         {
-          "name": "交易员22",
-          "value": 234
+          "name": "李四",
+          "value": 434
         },
         {
-          "name": "交易员3",
-          "value": 123
+          "name": "王五",
+          "value": 768
         },
         {
-          "name": "交易员4",
+          "name": "赵六",
           "value": 36
         },
         {
-          "name": "交易员5",
-          "value": 456
+          "name": "刘七",
+          "value": 812
         }
       ]
     }

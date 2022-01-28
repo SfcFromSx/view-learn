@@ -1,0 +1,13 @@
+{
+  "title": "理财业务管控平台",
+  "theme": "dark",
+  "charts": {
+    "left1": "chart_trade_pie",
+    "left2": "chart_instruction_count_bar",
+    "left3": "chart_trade_trend_line",
+    "middle1": "chart_instruction_card_bar",
+    "middle2": "chart_trader_wordCloud",
+    "right1": "chart_warning_bar",
+    "right2": "chart_trade_flow_funnel"
+  }
+}
