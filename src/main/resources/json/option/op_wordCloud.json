@@ -1,1 +1,63 @@
-{"series":[{"type":"wordCloud","shape":"diamond","keepAspect":false,"left":"center","top":"center","width":"70%","height":"80%","right":null,"bottom":null,"sizeRange":[20,60],"rotationRange":[0,0],"rotationStep":45,"gridSize":30,"drawOutOfBound":false,"layoutAnimation":true,"textStyle":{"fontFamily":"sans-serif","fontWeight":"bold"},"emphasis":{"focus":"self","textStyle":{"textShadowBlur":10}},"data":[{"name":"交易员1","value":123},{"name":"交易员22","value":234},{"name":"交易员3","value":123},{"name":"交易员4","value":36},{"name":"交易员5","value":456}]}]}
+{
+  "tooltip": {
+    "show": true
+  },
+  "series": [
+    {
+      "type": "wordCloud",
+      "shape": "diamond",
+      "keepAspect": false,
+      "left": "center",
+      "top": "center",
+      "width": "70%",
+      "height": "80%",
+      "right": null,
+      "bottom": null,
+      "sizeRange": [
+        20,
+        60
+      ],
+      "rotationRange": [
+        0,
+        0
+      ],
+      "rotationStep": 45,
+      "gridSize": 30,
+      "drawOutOfBound": false,
+      "layoutAnimation": true,
+      "textStyle": {
+        "fontFamily": "sans-serif",
+        "fontWeight": "bold",
+        "color": "diy_function_randomColor()"
+      },
+      "emphasis": {
+        "focus": "self",
+        "textStyle": {
+          "textShadowBlur": 10
+        }
+      },
+      "data": [
+        {
+          "name": "交易员1",
+          "value": 123
+        },
+        {
+          "name": "交易员22",
+          "value": 234
+        },
+        {
+          "name": "交易员3",
+          "value": 123
+        },
+        {
+          "name": "交易员4",
+          "value": 36
+        },
+        {
+          "name": "交易员5",
+          "value": 456
+        }
+      ]
+    }
+  ]
+}
