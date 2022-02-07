@@ -25,7 +25,7 @@ public class ConfigController {
             @PathVariable("configId") String configId,
             @RequestParam("message") String message
     ) throws IOException {
-        H2DataSource.saveOptionJson(configType, configId, message);
+        H2DataSource.saveConfigJson(configType, configId, message);
         return "success";
     }
 }

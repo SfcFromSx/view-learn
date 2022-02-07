@@ -1,0 +1,9 @@
+{
+  "title": "业务管控平台-分屏1号",
+  "charts": {
+    "left1": "chart_trader_wordCloud",
+    "left2": "pie1",
+    "right1": "funnel1",
+    "right2": "liquidFill1"
+  }
+}

@@ -33,8 +33,8 @@ public class H2DataSource {
     }
 
     public static ViewPara getTemplateParaById(String templateId) throws Exception {
-        String value = H2DataSource.queryParaByKey(templateId);
-        if (StringUtils.isEmpty(value)) {
+        String value = getConfigJson("template", templateId);
+        if ("查询失败".equals(value)) {
             return new ViewPara();
         }
         return getTemplateParaByValue(value);
@@ -57,6 +57,9 @@ public class H2DataSource {
 
     private static ChartPara getChartParaById(String chartId) throws Exception {
         String value = getConfigJson("chart", chartId);
+        if ("查询失败".equals(value)) {
+            return new ChartPara();
+        }
         return new ObjectMapper().readValue(value, ChartPara.class);
     }
 
@@ -84,11 +87,11 @@ public class H2DataSource {
         }
     }
 
-    public static void saveOptionJson(String configType, String optionId, String optionValue) throws IOException {
-        String path = basePath + configType + "\\" + optionId + ".json";
+    public static void saveConfigJson(String configType, String configId, String configValue) throws IOException {
+        String path = basePath + configType + "\\" + configId + ".json";
         FileUtils.writeStringToFile(
                 FileUtils.getFile(path),
-                optionValue
+                configValue
                 , "utf-8"
         );
     }

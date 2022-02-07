@@ -12,7 +12,7 @@ public class PreViewController {
 
     @RequestMapping("/learn/view/preview/main2/{templateValue}")
     public String main2(Model model, @PathVariable("templateValue") String templateValue) throws Exception {
-        ViewPara viewPara = H2DataSource.getTemplateParaById(templateValue);
+        ViewPara viewPara = H2DataSource.getTemplateParaByValue(templateValue);
         model.addAttribute("para", viewPara);
         return "view_main2";
     }

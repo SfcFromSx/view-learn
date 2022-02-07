@@ -1,0 +1,12 @@
+{
+  "title": "业务管控平台-主屏2号",
+  "charts": {
+    "left1": "chart_trader_wordCloud",
+    "left2": "funnel1",
+    "left3": "stack1",
+    "middle": "tree1",
+    "right1": "pie1",
+    "right2": "liquidFill1",
+    "right3": "stackArea1"
+  }
+}
