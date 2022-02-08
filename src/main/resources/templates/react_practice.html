@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>react-practice</title>
+    <!--	react框架-->
+    <script type="text/javascript" th:src="@{/lib/react/react.development.js}"></script>
+    <script type="text/javascript" th:src="@{/lib/react/react-dom.development.js}"></script>
+    <script type="text/javascript" th:src="@{/lib/react/babel.min.js}"></script>
+
+    <!--	react框架-->
+<!--    <script src="https://cdn.staticfile.org/react/17.0.2/umd/react.development.js"></script>-->
+<!--    <script src="https://cdn.staticfile.org/react-dom/17.0.2/umd/react-dom.development.js"></script>-->
+<!--    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>-->
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    ReactDOM.render(
+        <h1>Hello, world!</h1>,
+        document.getElementById('example')
+    );
+</script>
+</body>
+</html>

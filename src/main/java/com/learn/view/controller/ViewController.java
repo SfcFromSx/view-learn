@@ -55,4 +55,9 @@ public class ViewController {
         return "json_editor";
     }
 
+    @RequestMapping("/learn/view/react")
+    public String reactPractice(Model model) throws Exception {
+        return "react_practice";
+    }
+
 }
