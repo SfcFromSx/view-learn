@@ -16,6 +16,13 @@ public class ViewController {
         return "index";
     }
 
+    @RequestMapping("/learn/view/main1/{templateId}")
+    public String main1(Model model, @PathVariable("templateId") String templateId) throws Exception {
+        ViewPara viewPara = H2DataSource.getTemplateParaById(templateId);
+        model.addAttribute("para", viewPara);
+        return "view_main1";
+    }
+
     @RequestMapping("/learn/view/main2/{templateId}")
     public String main2(Model model, @PathVariable("templateId") String templateId) throws Exception {
         ViewPara viewPara = H2DataSource.getTemplateParaById(templateId);

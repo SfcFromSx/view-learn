@@ -54,6 +54,11 @@ function themeInit(theme) {
     // 初始化背景色、标题、边框
     let bodyColor, h2Color, borderColor;
     switch (theme) {
+        case "blueDiy":
+            bodyColor = "#210565";
+            h2Color = "#c5d3e2";
+            borderColor = "rgb(31,38,105)";
+            break;
         case "chalk":
             bodyColor = "rgba(20,26,83,1)";
             h2Color = "#beb4b4";
