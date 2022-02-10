@@ -12,13 +12,66 @@
 }
 
 .diy-header {
-    background: url(../images/head_bg.png);
+    background: url(../images/head_bg.png) no-repeat top center;
     /*opacity: 0.5;*/
 }
 
 /*仪表块-边缘等样式*/
+/*.diy-panel {*/
+/*    border: 0.01rem solid rgb(116 135 129 / 17%);*/
+/*    !*background: rgba(255, 255, 255, 0.04) url(../images/line1.png);*!*/
+/*}*/
+
 .diy-panel {
-    border: 0.05rem solid rgb(116 135 129 / 17%);
+    position: relative;
+    border: 1px solid rgba(25, 186, 139, 0.17);
+    background: rgba(255, 255, 255, 0.04) url(../images/line1.png);
+}
+.diy-panel::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-top: 1px solid #02a6b5;
+    border-left: 1px solid #02a6b5;
+}
+.diy-panel::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-top: 1px solid #02a6b5;
+    border-right: 1px solid #02a6b5;
+}
+.diy-panel-footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+.diy-panel-footer::before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-bottom: 1px solid #02a6b5;
+    border-left: 1px solid #02a6b5;
+}
+.diy-panel-footer::after {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-bottom: 1px solid #02a6b5;
+    border-right: 1px solid #02a6b5;
 }
 
 .diy-panel-no-border {

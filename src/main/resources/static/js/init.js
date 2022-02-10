@@ -69,10 +69,14 @@ function themeInit(theme) {
             h2Color = "#beb4b4";
             borderColor = "rgb(93,93,93)";
             break;
+        case "blueTech":
+            h2Color = "rgb(166 180 240)";
+            borderColor = "rgb(166 180 240)";
+            break;
         case "customed":
         default:
             bodyColor = "rgba(0, 0, 0, 0)";
-            h2Color = "rgba(51,51,51,1)";
+            h2Color = "rgb(255,255,255)";
             break;
     }
     $("body").css("backgroundColor", bodyColor);
