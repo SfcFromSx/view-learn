@@ -9,7 +9,6 @@ function templateInit(para) {
         if(this.innerText !== '') {
             $(this).attr('id',this.innerText);
             $(this).addClass("diy-chart");
-            $(this.parentNode).addClass("diy-panel");
         }
         $(this).css("font-size", 20);
         // 测试状态为模板填充颜色
@@ -70,8 +69,8 @@ function themeInit(theme) {
             borderColor = "rgb(93,93,93)";
             break;
         case "blueTech":
-            h2Color = "rgb(166 180 240)";
-            borderColor = "rgb(166 180 240)";
+            h2Color = "rgb(204 211 244)";
+            borderColor = "rgb(204 211 244)";
             break;
         case "customed":
         default:
