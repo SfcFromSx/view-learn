@@ -1,1 +1,119 @@
-{"grid":{"left":"5%","right":"5%","bottom":"0%","top":"5%","containLabel":true},"tooltip":{"trigger":"axis","axisPointer":{"type":"none"}},"xAxis":{"show":false,"type":"value"},"yAxis":[{"type":"category","inverse":true,"axisLabel":{"show":true,"textStyle":{"color":"#fff"}},"splitLine":{"show":false},"axisTick":{"show":false},"axisLine":{"show":false},"data":["安徽省","河南省","浙江省","湖北省","贵州省","江西省"]},{"type":"category","inverse":true,"axisTick":"none","axisLine":"none","show":true,"axisLabel":{"textStyle":{"color":"#ffffff","fontSize":"6rem"}}}],"series":[{"name":"值","type":"bar","zlevel":1,"itemStyle":{"normal":{"barBorderRadius":30,"color":{"type":"linear","x":0,"y":0,"x2":1,"y2":0,"colorStops":[{"offset":0,"color":"rgb(57,89,255,1)"},{"offset":1,"color":"rgb(46,200,207,1)"}]}}},"barWidth":20,"data":[239,181,154,144,135,117]},{"name":"背景","type":"bar","barWidth":20,"barGap":"-100%","data":[300,300,300,300,300,300],"itemStyle":{"normal":{"color":"rgba(0,77,167,1)","barBorderRadius":30}}}]}
+{
+  "grid": {
+    "left": "5%",
+    "right": "5%",
+    "bottom": "0%",
+    "top": "5%",
+    "containLabel": true
+  },
+  "tooltip": {
+    "trigger": "axis",
+    "axisPointer": {
+      "type": "none"
+    }
+  },
+  "xAxis": {
+    "show": false,
+    "type": "value"
+  },
+  "yAxis": [
+    {
+      "type": "category",
+      "inverse": true,
+      "axisLabel": {
+        "show": true,
+        "textStyle": {
+          "color": "#fff"
+        }
+      },
+      "splitLine": {
+        "show": false
+      },
+      "axisTick": {
+        "show": false
+      },
+      "axisLine": {
+        "show": false
+      },
+      "data": [
+        "安徽省",
+        "河南省",
+        "浙江省",
+        "湖北省",
+        "贵州省",
+        "江西省"
+      ]
+    },
+    {
+      "type": "category",
+      "inverse": true,
+      "axisTick": "none",
+      "axisLine": "none",
+      "show": true,
+      "axisLabel": {
+        "textStyle": {
+          "color": "#ffffff",
+          "fontSize": "6rem"
+        }
+      }
+    }
+  ],
+  "series": [
+    {
+      "name": "值",
+      "type": "bar",
+      "zlevel": 1,
+      "itemStyle": {
+        "normal": {
+          "barBorderRadius": 30,
+          "color": {
+            "type": "linear",
+            "x": 0,
+            "y": 0,
+            "x2": 1,
+            "y2": 0,
+            "colorStops": [
+              {
+                "offset": 0,
+                "color": "rgb(57,89,255,1)"
+              },
+              {
+                "offset": 1,
+                "color": "rgb(46,200,207,1)"
+              }
+            ]
+          }
+        }
+      },
+      "barWidth": 20,
+      "data": [
+        239,
+        181,
+        154,
+        144,
+        135,
+        117
+      ]
+    },
+    {
+      "name": "背景",
+      "type": "bar",
+      "barWidth": 20,
+      "barGap": "-100%",
+      "data": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "itemStyle": {
+        "normal": {
+          "color": "rgba(0,77,167,1)",
+          "barBorderRadius": 30
+        }
+      }
+    }
+  ]
+}

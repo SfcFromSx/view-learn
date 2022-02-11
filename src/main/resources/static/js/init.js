@@ -55,7 +55,7 @@ function themeInit(theme) {
     switch (theme) {
         case "blueDiy":
             bodyColor = "#210565";
-            h2Color = "#c5d3e2";
+            h2Color = "rgb(46,200,207,1)";
             borderColor = "rgb(31,38,105)";
             break;
         case "chalk":
@@ -69,7 +69,7 @@ function themeInit(theme) {
             borderColor = "rgb(93,93,93)";
             break;
         case "blueTech":
-            h2Color = "rgb(204 211 244)";
+            h2Color = "rgb(11 147 199)";
             borderColor = "rgb(204 211 244)";
             break;
         case "customed":
