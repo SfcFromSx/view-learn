@@ -37,6 +37,9 @@
     font-family: electronicFont;
     src: url(../echart/font/DS-DIGIT.TTF);
 }
+li {
+    list-style: none;
+}
 .no .no-hd ul li {
     position: relative;
     flex: 1;
@@ -57,7 +60,7 @@
     height: 0.5rem;
     line-height: 0.5rem;
     text-align: center;
-    font-size: 0.225rem;
+    font-size: 0.4rem;
     color: rgba(255, 255, 255, 0.7);
     padding-top: 0.125rem;
 }
