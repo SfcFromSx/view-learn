@@ -75,11 +75,11 @@
             "colorStops": [
               {
                 "offset": 0,
-                "color": "rgb(57,89,255,1)"
+                "color": "rgb(57,89,255,0.5)"
               },
               {
                 "offset": 1,
-                "color": "rgb(46,200,207,1)"
+                "color": "rgb(46,200,207,0.5)"
               }
             ]
           }

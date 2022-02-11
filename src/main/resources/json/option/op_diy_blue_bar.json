@@ -78,11 +78,11 @@
             "colorStops": [
               {
                 "offset": 0,
-                "color": "rgba(0,244,255,1)"
+                "color": "rgba(0,244,255,0.5)"
               },
               {
                 "offset": 1,
-                "color": "rgba(0,77,167,1)"
+                "color": "rgba(0,77,167,0.5)"
               }
             ]
           },

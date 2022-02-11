@@ -1,1 +1,138 @@
-{"tooltip":{},"grid":{"top":"10%","left":"5%","right":"5%","bottom":"10%","containLabel":true},"legend":{"itemGap":50,"data":["注册总量","最新注册量"],"textStyle":{"color":"#f9f9f9","borderColor":"#fff"}},"xAxis":[{"type":"category","boundaryGap":true,"axisLine":{"show":true,"lineStyle":{"color":"#f9f9f9"}},"axisLabel":{"textStyle":{"color":"#d1e6eb","margin":15}},"axisTick":{"show":false},"data":["1月","2月","3月","4月","5月","6月","7月"]}],"yAxis":[{"type":"value","min":0,"splitNumber":7,"splitLine":{"show":true,"lineStyle":{"color":"#0a3256"}},"axisLine":{"show":false},"axisLabel":{"margin":20,"textStyle":{"color":"#d1e6eb"}},"axisTick":{"show":false}}],"series":[{"name":"注册总量","type":"line","showAllSymbol":true,"symbol":"emptyCircle","symbolSize":6,"lineStyle":{"normal":{"color":"#28ffb3"},"borderColor":"#f0f"},"label":{"show":true,"position":"top","textStyle":{"color":"#fff"}},"itemStyle":{"normal":{"color":"#28ffb3"}},"tooltip":{"show":false},"areaStyle":{"normal":{"color":{"type":"linear","x":0,"y":0,"x2":0,"y2":1,"colorStops":[{"offset":0,"color":"rgba(0,244,255,1)"},{"offset":1,"color":"rgba(0,77,167,1)"}]},"shadowColor":"rgba(53,142,215, 0.9)","shadowBlur":20}},"data":[444,222,485,631,333,222,333]}]}
+{
+  "tooltip": {},
+  "grid": {
+    "top": "10%",
+    "left": "5%",
+    "right": "5%",
+    "bottom": "10%",
+    "containLabel": true
+  },
+  "legend": {
+    "itemGap": 50,
+    "data": [
+      "注册总量",
+      "最新注册量"
+    ],
+    "textStyle": {
+      "color": "#f9f9f9",
+      "borderColor": "#fff"
+    }
+  },
+  "xAxis": [
+    {
+      "type": "category",
+      "boundaryGap": true,
+      "axisLine": {
+        "show": true,
+        "lineStyle": {
+          "color": "#f9f9f9"
+        }
+      },
+      "axisLabel": {
+        "textStyle": {
+          "color": "#d1e6eb",
+          "margin": 15
+        }
+      },
+      "axisTick": {
+        "show": false
+      },
+      "data": [
+        "1月",
+        "2月",
+        "3月",
+        "4月",
+        "5月",
+        "6月",
+        "7月"
+      ]
+    }
+  ],
+  "yAxis": [
+    {
+      "type": "value",
+      "min": 0,
+      "splitNumber": 7,
+      "splitLine": {
+        "show": true,
+        "lineStyle": {
+          "color": "#0a3256"
+        }
+      },
+      "axisLine": {
+        "show": false
+      },
+      "axisLabel": {
+        "margin": 20,
+        "textStyle": {
+          "color": "#d1e6eb"
+        }
+      },
+      "axisTick": {
+        "show": false
+      }
+    }
+  ],
+  "series": [
+    {
+      "name": "注册总量",
+      "type": "line",
+      "showAllSymbol": true,
+      "symbol": "emptyCircle",
+      "symbolSize": 6,
+      "lineStyle": {
+        "normal": {
+          "color": "#28ffb3"
+        },
+        "borderColor": "#f0f"
+      },
+      "label": {
+        "show": true,
+        "position": "top",
+        "textStyle": {
+          "color": "#fff"
+        }
+      },
+      "itemStyle": {
+        "normal": {
+          "color": "#28ffb3"
+        }
+      },
+      "tooltip": {
+        "show": false
+      },
+      "areaStyle": {
+        "normal": {
+          "color": {
+            "type": "linear",
+            "x": 0,
+            "y": 0,
+            "x2": 0,
+            "y2": 1,
+            "colorStops": [
+              {
+                "offset": 0,
+                "color": "rgba(0,244,255,0.5)"
+              },
+              {
+                "offset": 1,
+                "color": "rgba(0,77,167,0.5)"
+              }
+            ]
+          },
+          "shadowColor": "rgba(53,142,215,0.9)",
+          "shadowBlur": 20
+        }
+      },
+      "data": [
+        444,
+        222,
+        485,
+        631,
+        333,
+        222,
+        333
+      ]
+    }
+  ]
+}

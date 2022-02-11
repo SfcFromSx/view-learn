@@ -1,1 +1,46 @@
-{"title":{"text":""},"series":[{"type":"liquidFill","radius":"78.1%","center":["50%","50%"],"color":[{"type":"linear","x":0,"y":0,"x2":0,"y2":1,"colorStops":[{"offset":0,"color":"rgba(0,244,255,1)"},{"offset":1,"color":"rgba(0,77,167,1)"}]}],"data":[0.6,0.6],"backgroundStyle":{"color":"rgba(0,77,167,1)","borderWidth":1,"borderColor":"rgba(55, 211, 255, 0.42)"},"outline":{"show":false}}]}
+{
+  "title": {
+    "text": ""
+  },
+  "series": [
+    {
+      "type": "liquidFill",
+      "radius": "78.1%",
+      "center": [
+        "50%",
+        "50%"
+      ],
+      "color": [
+        {
+          "type": "linear",
+          "x": 0,
+          "y": 0,
+          "x2": 0,
+          "y2": 1,
+          "colorStops": [
+            {
+              "offset": 0,
+              "color": "rgba(0,244,255,0.3)"
+            },
+            {
+              "offset": 1,
+              "color": "rgba(0,77,167,0.3)"
+            }
+          ]
+        }
+      ],
+      "data": [
+        0.6,
+        0.6
+      ],
+      "backgroundStyle": {
+        "color": "rgba(0,77,167,1)",
+        "borderWidth": 1,
+        "borderColor": "rgba(55, 211, 255, 0.2)"
+      },
+      "outline": {
+        "show": false
+      }
+    }
+  ]
+}
