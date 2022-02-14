@@ -1,6 +1,219 @@
 {
-  "chartTitle": "",
-  "chartType": "op_warning_bar",
-  "dataUrl": "",
-  "frequency": "5000"
+  "grid": {
+    "top": "25%",
+    "left": "5%",
+    "right": "5%",
+    "bottom": "10%",
+    "containLabel": true
+  },
+  "legend": {
+    "top": "5%",
+    "textStyle": {
+      "color": "#f9f9f9",
+      "borderColor": "#fff"
+    }
+  },
+  "xAxis": [
+    {
+      "type": "category",
+      "boundaryGap": false,
+      "axisLabel": {
+        "textStyle": {
+          "color": "#d1e6eb",
+          "margin": 15
+        }
+      },
+      "splitLine": {
+        "show": false
+      },
+      "data": [
+        "2/1",
+        "2/2",
+        "2/3",
+        "2/4",
+        "2/5",
+        "2/6",
+        "2/7"
+      ]
+    }
+  ],
+  "yAxis": [
+    {
+      "type": "value",
+      "axisLabel": {
+        "textStyle": {
+          "color": "#d1e6eb",
+          "margin": 15
+        }
+      },
+      "splitLine": {
+        "show": false
+      },
+      "axisLabel": {
+        "formatter": "{value} °C"
+      }
+    }
+  ],
+  "series": [
+    {
+      "stack": "Total",
+      "name": "O/N",
+      "type": "line",
+      "label": {
+        "show": true,
+        "position": "top",
+        "textStyle": {
+          "color": "#fff"
+        }
+      },
+      "tooltip": {
+        "show": false
+      },
+      "emphasis": {
+        "focus": "series"
+      },
+      "data": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "stack": "Total",
+      "name": "1W",
+      "type": "line",
+      "label": {
+        "show": true,
+        "position": "top",
+        "textStyle": {
+          "color": "#fff"
+        }
+      },
+      "tooltip": {
+        "show": false
+      },
+      "emphasis": {
+        "focus": "series"
+      },
+      "data": [
+        1,
+        1,
+        2,
+        2,
+        3,
+        3,
+        4
+      ]
+    },
+    {
+      "stack": "Total",
+      "name": "2W",
+      "type": "line",
+      "label": {
+        "show": true,
+        "position": "top",
+        "textStyle": {
+          "color": "#fff"
+        }
+      },
+      "tooltip": {
+        "show": false
+      },
+      "emphasis": {
+        "focus": "series"
+      },
+      "data": [
+        3,
+        3,
+        3,
+        3,
+        5,
+        5,
+        6
+      ]
+    },
+    {
+      "stack": "Total",
+      "name": "1M",
+      "type": "line",
+      "label": {
+        "show": true,
+        "position": "top",
+        "textStyle": {
+          "color": "#fff"
+        }
+      },
+      "tooltip": {
+        "show": false
+      },
+      "emphasis": {
+        "focus": "series"
+      },
+      "data": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "name": "3M",
+      "type": "line",
+      "label": {
+        "show": true,
+        "position": "top",
+        "textStyle": {
+          "color": "#fff"
+        }
+      },
+      "tooltip": {
+        "show": false
+      },
+      "emphasis": {
+        "focus": "series"
+      },
+      "data": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "name": "6M",
+      "type": "line",
+      "label": {
+        "show": true,
+        "position": "top",
+        "textStyle": {
+          "color": "#fff"
+        }
+      },
+      "tooltip": {
+        "show": false
+      },
+      "emphasis": {
+        "focus": "series"
+      },
+      "data": [
+        1,
+        2.1,
+        2,
+        2,
+        2,
+        2,
+        2.3
+      ]
+    }
+  ]
 }

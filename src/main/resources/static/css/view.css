@@ -44,9 +44,9 @@ li {
     position: relative;
     flex: 1;
     text-align: center;
-    height: 1rem;
-    line-height: 1rem;
-    font-size: 0.875rem;
+    height: 100%;
+    line-height: 1.3rem;
+    font-size: 1.2rem;
     color: #ffeb7b;
     padding: 0.01rem 0;
     font-family: electronicFont;
@@ -57,8 +57,8 @@ li {
 }
 .no .no-bd ul li {
     flex: 1;
-    height: 0.5rem;
-    line-height: 0.5rem;
+    height: 100%;
+    line-height: 0.6rem;
     text-align: center;
     font-size: 0.4rem;
     color: rgba(255, 255, 255, 0.7);
@@ -144,7 +144,9 @@ li {
 h1 {
     font-size: 1rem;
     font-weight: bolder;
-    color: #beb4b4;
+    background-image: -webkit-linear-gradient(0deg,#0095d6, #46daff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     text-align: center;
     line-height: 1rem;
 }
