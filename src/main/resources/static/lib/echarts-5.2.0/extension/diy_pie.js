@@ -18,7 +18,7 @@ var option = {
         {
             name: '统计',
             type: 'gauge',
-            splitNumber: 30, //刻度数量
+            splitNumber: 10, //刻度数量
             min: 0,
             max: 100,
             radius: '58%', //图表尺寸
@@ -63,9 +63,10 @@ var option = {
                 shadowColor: '#fff', //默认透明
                 shadowBlur: 2,
                 offsetCenter: [0, '0%'], // x, y，单位px
-                textStyle: { // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-                    color: '#fff',
-                    fontSize: '1rem',
+                textStyle: {
+                    color: 'rgba(0,244,255,0.9)',
+                    fontSize: '1.8rem',
+                    fontFamily: "electronicFont",
                 },
                 formatter: '{value}'
             },

@@ -68,7 +68,7 @@ li {
 .diy-body {
     font-family: Arial, Helvetica, sans-serif;
     /*  背景图定位 / 背景图尺寸  cover 完全铺满容器  contain 完整显示在容器内 */
-    background: url(../images/bg.jpg) no-repeat;
+    background: url(../images/bg.jpg) no-repeat top center;
     background-size: cover;
     /* 行高是字体1.15倍 */
     line-height: 1.15;
@@ -89,6 +89,21 @@ li {
     position: relative;
     border: 1px solid rgba(25, 186, 139, 0.17);
     background: rgba(255, 255, 255, 0.04) url(../images/line1.png);
+}
+
+.diy-background-middle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 643px;
+    height: 643px;
+    border-radius: 50%;
+    background: url(../images/lbx.png) center no-repeat;
+    /*animation: rotate 15s linear infinite;*/
+    opacity: 0.6;
+    overflow: hidden;
+    z-index: 0;
 }
 .diy-panel::before {
     position: absolute;
@@ -141,14 +156,17 @@ li {
     rgba(25, 186, 139, 0.17);
 }
 
+.diy-color-blue {
+    background-image: -webkit-linear-gradient(bottom, rgba(18, 90, 173, 0.9),rgba(0,244,255,0.9));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 h1 {
     font-size: 1rem;
     font-weight: bolder;
     text-align: center;
     line-height: 1rem;
-    background-image: -webkit-linear-gradient(bottom, rgba(18, 90, 173, 0.9),rgba(0,244,255,0.9));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 h2 {
@@ -156,9 +174,6 @@ h2 {
     color: #beb4b4;
     text-align: center;
     line-height: 0.5rem;
-    background-image: -webkit-linear-gradient(bottom, rgba(18, 90, 173, 0.9),rgba(0,244,255,0.9));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 .diy-chart{
@@ -236,4 +251,21 @@ h2 {
 }
 .diy-h-20 {
     height: 20rem;
+}
+
+@keyframes rotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+@keyframes rotate1 {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(-360deg);
+    }
 }
