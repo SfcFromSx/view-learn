@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+	<meta charset="UTF-8">
+	<title>Title</title>
 	<link rel="stylesheet" type="text/css" media="all" th:href="@{/lib/bootstrap-3.4.1/css/bootstrap.min.css}">
 	<link rel="stylesheet" type="text/css" media="all" th:href="@{/css/view.css}">
 	<!--	基础组件-->
@@ -10,6 +10,8 @@
 	<script type="text/javascript" th:src="@{/lib/jquery/jquery.min.js}"></script>
 	<!--	图表组件-->
 	<script type="text/javascript" th:src="@{/lib/echarts-5.2.0/echarts.min.js}"></script>
+	<script type="text/javascript" th:src="@{/lib/echarts-5.2.0/extension/diy_pie.js}"></script>
+	<script type="text/javascript" th:src="@{/lib/china.js}"></script>
 	<script type="text/javascript" th:src="@{/lib/echarts-wordcloud-2.0.0/echarts-wordcloud.min.js}"></script>
 	<script type="text/javascript" th:src="@{/lib/echarts-liquidfill-3.1.0/echarts-liquidfill.min.js}"></script>
 	<!--	加载主题-->
@@ -21,61 +23,95 @@
 	<script type="text/javascript" th:src="@{/js/init.js}"></script>
 </head>
 <body>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-12 diy-h-2 diy-header">
-				<h1 th:text="${para.title}"></h1>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-3 diy-h-6">
-				<h2>标题</h2>
-				<div>left1</div>
-			</div>
-			<div class="col-md-9 diy-h-6">
-				<div class="row">
-					<div class="col-md-6  diy-h-6">
-						<h2>标题</h2>
-						<div>middle1</div>
-					</div>
-					<div class="col-md-6  diy-h-6">
-						<h2>标题</h2>
-						<div>right1</div>
-					</div>
+<div class="container-fluid diy-body">
+	<div class="row">
+		<div class="col-md-12 column">
+			<div class="row">
+				<div class="col-md-12 diy-h-2 diy-header">
+					<h1 class="diy-color-blue" th:text="${para.title}"></h1>
 				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-3">
-				<div class="row">
-					<div class="col-md-12 diy-h-6">
-						<h2>标题</h2>
-						<div>left2</div>
+			<div class="row" >
+				<div class="col-md-3 column">
+					<div class="row">
+						<div class="col-md-12 diy-h-6 column diy-panel">
+							<h2 class="diy-color-blue">标题</h2>
+							<div>left1</div>
+							<div class="diy-panel-footer">
+							</div>
+						</div>
+						<div class="col-md-12 diy-h-6 column diy-panel">
+							<h2 class="diy-color-blue">标题</h2>
+							<div>left2</div>
+							<div class="diy-panel-footer"></div>
+						</div>
+						<div class="col-md-12 diy-h-6 column diy-panel">
+							<h2 class="diy-color-blue">标题</h2>
+							<div>left3</div>
+							<div class="diy-panel-footer"></div>
+						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-12 diy-h-6">
-						<h2>标题</h2>
-						<div>left3</div>
+				<div class="col-md-6 diy-h-18 column">
+					<div class="row">
+						<div class="col-md-12 diy-h-4 column">
+							<h2 class="diy-color-blue">生命周期关键节点汇总</h2>
+							<div class="no">
+								<div class="no-hd">
+									<ul>
+										<li>12</li>
+										<li>11</li>
+										<li>10</li>
+										<li>10</li>
+										<li>10</li>
+									</ul>
+								</div>
+								<div class="no-bd">
+									<ul>
+										<li>产品上传</li>
+										<li>申赎放行</li>
+										<li>净值披露</li>
+										<li>现金流生成</li>
+										<li>费用划分</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 diy-h-14 column">
+							<h2 class="diy-color-blue">标题</h2>
+							<div>middle2</div>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-md-9">
-				<div class="row">
-					<div class="col-md-6 diy-h-12">
-						<h2>标题</h2>
-						<div>middle2</div>
-					</div>
-					<div class="col-md-6 diy-h-12">
-						<h2>标题</h2>
-						<div>right2</div>
+				<div class="col-md-3 column">
+					<div class="row">
+						<div class="col-md-12 diy-h-6 column diy-panel">
+							<h2 class="diy-color-blue">标题</h2>
+							<div>right1</div>
+							<div class="diy-panel-footer">
+							</div>
+						</div>
+						<div class="col-md-12 diy-h-6 column diy-panel">
+							<h2 class="diy-color-blue">一周内待到期产品数</h2>
+							<div>right2</div>
+							<div class="diy-panel-footer">
+							</div>
+						</div>
+						<div class="col-md-12 diy-h-6 column diy-panel">
+							<h2 class="diy-color-blue">无效指令数</h2>
+							<div>right3</div>
+							<div class="diy-panel-footer">
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script th:inline="javascript">
-		templateInit([[${para.jsonPara}]]);
-	</script>
+</div>
+<script th:inline="javascript">
+	templateInit([[${para.jsonPara}]]);
+	addBackGroundChart(document.querySelector("#right2"));
+</script>
 </body>
 </html>

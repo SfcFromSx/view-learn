@@ -65,14 +65,14 @@ var option = {
                 offsetCenter: [0, '0%'], // x, y，单位px
                 textStyle: {
                     color: 'rgba(0,244,255,0.9)',
-                    fontSize: '1.8rem',
+                    fontSize: '1.3rem',
                     fontFamily: "electronicFont",
                 },
                 formatter: '{value}'
             },
             data: [{
                 name: "",
-                value: 14
+                value: 8
             }]
         },
         {
