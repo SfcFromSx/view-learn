@@ -45,8 +45,8 @@ li {
     flex: 1;
     text-align: center;
     height: 100%;
-    line-height: 1.3rem;
-    font-size: 1.2rem;
+    line-height: 1.4rem;
+    font-size: 1.3rem;
     color: #ffeb7b;
     padding: 0.01rem 0;
     font-family: electronicFont;
@@ -58,9 +58,9 @@ li {
 .no .no-bd ul li {
     flex: 1;
     height: 100%;
-    line-height: 0.6rem;
+    line-height: 0.7rem;
     text-align: center;
-    font-size: 0.4rem;
+    font-size: 0.5rem;
     color: rgba(255, 255, 255, 0.7);
     padding-top: 0.125rem;
 }
@@ -144,11 +144,11 @@ li {
 h1 {
     font-size: 1rem;
     font-weight: bolder;
-    background-image: -webkit-linear-gradient(0deg,#0095d6, #46daff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     text-align: center;
     line-height: 1rem;
+    background-image: -webkit-linear-gradient(bottom, rgba(18, 90, 173, 0.9),rgba(0,244,255,0.9));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 h2 {
@@ -156,6 +156,9 @@ h2 {
     color: #beb4b4;
     text-align: center;
     line-height: 0.5rem;
+    background-image: -webkit-linear-gradient(bottom, rgba(18, 90, 173, 0.9),rgba(0,244,255,0.9));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .diy-chart{
