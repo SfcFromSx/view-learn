@@ -67,4 +67,9 @@ public class ViewController {
         return "react_practice";
     }
 
+    @RequestMapping("/learn/view/canvas")
+    public String canvasPractice(Model model) throws Exception {
+        return "canvas";
+    }
+
 }

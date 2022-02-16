@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CRender</title>
+  <!--调试版-->
+  <script type="text/javascript" th:src="@{/lib/crender.js}"></script>
+  <style>
+    html,
+    body,
+    canvas {
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+      padding: 0px;
+    }
+  </style>
+</head>
+<body>
+<canvas></canvas>
+
+<script>
+  const { CRender, GRAPHS } = window.CRender
+
+  const canvas = document.querySelector('canvas')
+  const render = new CRender(canvas)
+  const [w, h] = render.area
+
+  const graph = new GRAPHS.Text({
+    animationCurve: 'easeOutBounce',
+    shape: {
+      content: '理财运营管控平台',
+      position: [w / 2, h / 2],
+    },
+    style: {
+      fontSize: 80,
+      fill: '#28c5d3',
+      opacity: 0,
+    },
+  })
+
+  render.add(graph)
+
+  graph.animation('style', {
+    opacity: 1,
+    fontSize: 120,
+  })
+
+</script>
+</body>
+</html>
