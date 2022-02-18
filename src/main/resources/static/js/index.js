@@ -78,54 +78,19 @@ window.onload = function(){
         }
     }
 
-
     //初始化编辑器模式
     var codeOptions = {
         mode: 'code',
-        modes: ['code'],
-        onError: function(err) {
-            alert(err.toString());
-        }
-    };
-    var jsonOptions = {
-        mode: 'tree',
-        modes: ['code', 'form', 'text', 'tree', 'view'],
+        modes: ['code', 'tree', 'form', 'text', 'view'],
         onError: function(err) {
             alert(err.toString());
         }
     };
     var leftDiv = new Array(3);
-    var rightDiv = new Array(3);
-    var jsonBtn = new Array(3);
-    var codeBtn = new Array(3);
     var codeEditor = new Array(3);
-    var jsonEditor = new Array(3);
     for (let i = 0; i < 3; i++) {
         leftDiv[i] = document.getElementById("codeEditor" + i);
-        rightDiv[i] = document.getElementById("jsonEditor" + i);
-        jsonBtn[i] = document.getElementById("jsonBtn" + i);
-        codeBtn[i] = document.getElementById("codeBtn" + i);
         //初始化编辑器内容
         codeEditor[i] = new JSONEditor(leftDiv[i], codeOptions, {"a": 1});
-        jsonEditor[i] = new JSONEditor(rightDiv[i], jsonOptions, {"a": 1});
-        //视图化
-        jsonBtn[i].onclick = function () {
-            try {
-                const codeContent = codeEditor[index].get();
-                jsonEditor[index].set(codeContent);
-            } catch (e) {
-                alert("JSON数据有误！");
-            }
-
-        }
-        //代码化
-        codeBtn[i].onclick = function () {
-            try {
-                const jsonContent = jsonEditor[index].get();
-                codeEditor[index].set(jsonContent);
-            } catch (e) {
-                alert("JSON数据有误！");
-            }
-        }
     }
 }
