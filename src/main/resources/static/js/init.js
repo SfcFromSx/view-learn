@@ -37,13 +37,20 @@ function viewInit(initPara) {
     // 初始化图表
     for (let i = 0; i < chartParas.length; i++) {
         const chartPara = chartParas[i];
-        const div = document.querySelector("#" + chartPara['location']);
+        const location = chartPara['location'];
+        const div = document.querySelector("#" + location);
         const title = chartPara['chartTitle'];
         if (title === '') {
             $(div).removeClass("diy-chart");
             $(div).addClass("diy-chart-no-title");
         }
         div.parentNode.firstElementChild.innerText = chartPara['chartTitle'];
+        // 初始化边框
+        const border = chartPara['border'];
+        const borderDiv = document.querySelector("#" + location + '-border');
+        if (borderDiv && border){
+            ReactDOM.render(React.createElement(datav[border]), borderDiv);
+        }
         chartPara['theme'] = paras[0]['theme'];
         chartInit(div, chartPara);
     }

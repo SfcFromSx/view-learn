@@ -13,6 +13,11 @@
     <script type="text/javascript" th:src="@{/lib/china.js}"></script>
     <script type="text/javascript" th:src="@{/lib/echarts-wordcloud-2.0.0/echarts-wordcloud.min.js}"></script>
     <script type="text/javascript" th:src="@{/lib/echarts-liquidfill-3.1.0/echarts-liquidfill.min.js}"></script>
+    <!--	react组件-->
+    <script type="text/javascript" th:src="@{/lib/react/react.development.js}"></script>
+    <script type="text/javascript" th:src="@{/lib/react/react-dom.development.js}"></script>
+    <script type="text/javascript" th:src="@{/lib/react/babel.min.js}"></script>
+    <script type="text/javascript" th:src="@{/lib/extract/datav.min.js}"></script>
     <!--	加载主题-->
     <script type="text/javascript" th:src="@{/echart/js/theme/chalk.js}"></script>
     <script type="text/javascript" th:src="@{/echart/js/theme/customed.js}"></script>
@@ -35,14 +40,13 @@
                     <div class="row">
                         <div class="col-md-12 diy-h-9 column diy-panel">
                             <h2 class="diy-color-blue">标题</h2>
+                            <div class="diy-border" id="left1-border"></div>
                             <div>left1</div>
-                            <div class="diy-panel-footer">
-                            </div>
                         </div>
                         <div class="col-md-12 diy-h-9 column diy-panel">
                             <h2 class="diy-color-blue">标题</h2>
+                            <div class="diy-border" id="left2-border"></div>
                             <div>left2</div>
-                            <div class="diy-panel-footer"></div>
                         </div>
                     </div>
                 </div>
@@ -68,15 +72,19 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12 diy-h-9 column">
+                        <div class="col-md-12 diy-h-9 column diy-panel">
                             <h2 class="diy-color-blue">标题</h2>
+                            <div class="diy-border" id="middle2-border"></div>
                             <div>middle2</div>
                         </div>
                         <div class="col-md-6 diy-h-6 column diy-panel">
+                            <h2 class="diy-color-blue">标题</h2>
+                            <div class="diy-border" id="middle3-border"></div>
                             <div>middle3</div>
                         </div>
                         <div class="col-md-6 diy-h-6 column diy-panel">
                             <h2 class="diy-color-blue">标题</h2>
+                            <div class="diy-border" id="middle4-border"></div>
                             <div>middle4</div>
                         </div>
                     </div>
@@ -86,14 +94,12 @@
                         <div class="col-md-12 diy-h-9 column diy-panel">
                             <h2 class="diy-color-blue">标题</h2>
                             <div>right1</div>
-                            <div class="diy-panel-footer">
-                            </div>
+                            <div class="diy-border" id="right1-border"></div>
                         </div>
                         <div class="col-md-12 diy-h-9 column diy-panel">
                             <h2 class="diy-color-blue">标题</h2>
                             <div>right2</div>
-                            <div class="diy-panel-footer">
-                            </div>
+                            <div class="diy-border" id="right2-border"></div>
                         </div>
                     </div>
                 </div>

@@ -10,4 +10,5 @@ public class ChartPara {
     String dataUrl;
     Integer frequency;
     String optionJson;
+    String border;
 }
