@@ -1,1 +1,1 @@
-{"chartTitle":"空心饼图示例","chartType":"pie","dataUrl":"http://localhost:8080/learn/view/extract/funnel","frequency":"5000"}
+{"chartTitle":"空心饼图示例","chartType":"pie","dataUrl":"http://localhost:8080/learn/view/extract/funnel","frequency":"5000","border":"BorderBox10"}

@@ -2,5 +2,6 @@
   "chartTitle": "地图示例",
   "chartType": "map",
   "dataUrl": "http://localhost:8080/learn/view/extract/map",
-  "frequency": "5000"
+  "frequency": "5000",
+  "border":"BorderBox10"
 }

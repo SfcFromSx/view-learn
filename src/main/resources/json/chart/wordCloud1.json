@@ -2,5 +2,6 @@
   "chartTitle": "词云示例",
   "chartType": "wordCloud",
   "dataUrl": "http://localhost:8080/learn/view/extract/wordCloud",
-  "frequency": "5000"
+  "frequency": "5000",
+  "border":"BorderBox10"
 }

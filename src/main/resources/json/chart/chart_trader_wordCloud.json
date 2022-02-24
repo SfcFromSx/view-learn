@@ -2,5 +2,6 @@
   "chartTitle": "交易员交易数量汇总",
   "chartType": "op_wordCloud",
   "dataUrl": "",
-  "frequency": "5000"
+  "frequency": "5000",
+  "border":"BorderBox10"
 }

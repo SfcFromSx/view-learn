@@ -1,1 +1,1 @@
-{"chartTitle":"通道图示例","chartType":"funnel","dataUrl":"http://localhost:8080/learn/view/extract/funnel","frequency":"2000"}
+{"chartTitle":"通道图示例","chartType":"funnel","dataUrl":"http://localhost:8080/learn/view/extract/funnel","frequency":"2000","border":"BorderBox10"}

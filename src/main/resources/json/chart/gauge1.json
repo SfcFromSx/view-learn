@@ -2,5 +2,6 @@
   "chartTitle": "仪表盘示例",
   "chartType": "gauge",
   "dataUrl": "http://localhost:8080/learn/view/extract/gauge",
-  "frequency": "5000"
+  "frequency": "5000",
+  "border":"BorderBox10"
 }

@@ -2,5 +2,6 @@
   "chartTitle": "待到期产品数量汇总",
   "chartType": "op_trade_pie",
   "dataUrl": "",
-  "frequency": "5000"
+  "frequency": "5000",
+  "border":"BorderBox10"
 }
