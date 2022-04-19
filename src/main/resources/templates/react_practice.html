@@ -2,20 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>react-practice</title>
+    <title>一体化管控平台</title>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/ui/test_ui.css}">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/ui/antd.min.css}">
+
     <!--	react框架-->
-    <script type="text/javascript" src="../static/lib/react/react.development.js"></script>
-    <script type="text/javascript" src="../static/lib/react/react-dom.development.js"></script>
-    <script type="text/javascript" src="../static/lib/react/babel.min.js"></script>
+    <script type="text/javascript" th:src="@{/lib/react/react.development.js}"></script>
+    <script type="text/javascript" th:src="@{/lib/react/react-dom.development.js}"></script>
+    <script type="text/javascript" th:src="@{/lib/react/babel.min.js}"></script>
+    <script type="text/javascript" th:src="@{/ui/antd.min.js}"></script>
+    <script type="text/babel" th:src="@{/ui/test_ui.js}"></script>
 </head>
 <body>
-<div id="example"></div>
-<script type="text/babel">
-    const value = 'Hello,1 world!';
-    ReactDOM.render(
-        <h1>{value}</h1>,
-        document.getElementById('example')
-    );
-</script>
+<div id="root"></div>
 </body>
 </html>
