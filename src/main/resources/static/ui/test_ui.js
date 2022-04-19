@@ -5,7 +5,13 @@ const { Header, Content, Sider } = Layout;
 const App = () => (
     <Layout>
         <Header style={{padding:0}} className="header">
-            <div style={{width: 200, height: '100%'}}/>
+            <div style={{width: 200, height: '100%', textAlign:'center'}}>
+                <a id="logo">
+                    <img alt="logo" width={40} height={40} src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"/>
+                    <span style={{color:'blue', fontSize:24}}>管控平台</span>
+                </a>
+                {/*<h1 style={{color:'white', fontSize:24, textAlign:'center'}}>管控平台</h1>*/}
+            </div>
         </Header>
         <Layout>
             <Sider width={200} className="site-layout-background">
