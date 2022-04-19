@@ -1,14 +1,7 @@
 const { Layout, Menu, Breadcrumb, Row, Col } = antd;
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
-
-const Page1 = () => (
-    <a>关闭</a>
-)
-
-const Page2 = () => (
-    <a>打开</a>
-)
+const {MenuUnfoldOutlined, MenuFoldOutlined} = icons;
 
 
 class App extends React.Component {
@@ -32,16 +25,17 @@ class App extends React.Component {
                 <Header style={{padding:0}} className="header">
                     <div style={{width: 200, height: '100%', textAlign:'center', float:'left'}}>
                         <a id="logo">
-                            <img alt="logo" width={25} height={25} src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"/>
+                            <img alt="logo" width={25} height={25} style={{marginRight:8}} src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"/>
                             <span style={{color:'white', fontSize:16}}> Vision Platform </span>
                         </a>
                         {/*<h1 style={{color:'white', fontSize:24, textAlign:'center'}}>管控平台</h1>*/}
                     </div>
                     <div style={{float:'left'}}>
-                        {React.createElement(this.state.collapsed ? Page1 : Page2, {
-                            className: 'trigger',
-                            onClick: this.toggle,
-                        })}
+                        {
+                            this.state.collapsed ?
+                            <MenuUnfoldOutlined className="trigger" style={{color:'white'}} onClick={this.toggle}/> :
+                            <MenuFoldOutlined className="trigger" style={{color:'white'}} onClick={this.toggle}/>
+                        }
                     </div>
                 </Header>
                 <Layout>
