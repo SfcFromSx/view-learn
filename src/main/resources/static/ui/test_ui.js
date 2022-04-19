@@ -3,29 +3,31 @@ const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 const {MenuUnfoldOutlined, MenuFoldOutlined} = icons;
 
-const Page1 = () => {
-    <h1>page1</h1>
-}
-
-const Page2 = () => {
-    <h1>page2</h1>
-}
-
-
 class App extends React.Component {
     constructor() {
         super();
         this.state = {
             collapsed: false,
+            currentPage:'page1',
         }
     }
 
     toggle = () => {
-        console.log('toggle');
         this.setState({
             collapsed: !this.state.collapsed,
         });
     };
+
+    renderContent = (page) => {
+        const Page = pages[page];
+        return <Page/>
+    }
+
+    clickMenuItem = (param) => {
+        this.setState({
+            currentPage:param.key,
+        });
+    }
 
     render() {
         return (
@@ -49,6 +51,7 @@ class App extends React.Component {
                 <Layout>
                     <Sider className="site-layout-background" trigger={null} collapsible collapsed={this.state.collapsed}>
                         <Menu
+                            onClick={this.clickMenuItem}
                             theme="dark"
                             mode="inline"
                             defaultSelectedKeys={['1']}
@@ -56,18 +59,18 @@ class App extends React.Component {
                             style={{ height: '100%', borderRight: 0 }}
                         >
                             <SubMenu key="sub1" title="大屏设计">
-                                <Menu.Item key="1">模板设计</Menu.Item>
-                                <Menu.Item key="2">页面编排</Menu.Item>
-                                <Menu.Item key="3">模块设计</Menu.Item>
-                                <Menu.Item key="4">图表设计</Menu.Item>
+                                <Menu.Item key="page1">模板设计</Menu.Item>
+                                <Menu.Item key="page2">页面编排</Menu.Item>
+                                <Menu.Item key="page3">模块设计</Menu.Item>
+                                <Menu.Item key="page4">图表设计</Menu.Item>
                             </SubMenu>
                             <SubMenu key="sub2" title="业务设计">
-                                <Menu.Item key="5">DAG设计</Menu.Item>
-                                <Menu.Item key="6">模型配置</Menu.Item>
-                                <Menu.Item key="7">option7</Menu.Item>
-                                <Menu.Item key="8">option8</Menu.Item>
+                                <Menu.Item key="page5">DAG设计</Menu.Item>
+                                <Menu.Item key="page6">模型配置</Menu.Item>
+                                <Menu.Item key="page7">option7</Menu.Item>
+                                <Menu.Item key="page8">option8</Menu.Item>
                             </SubMenu>
-                            <Menu.Item key="sub4">系统配置</Menu.Item>
+                            <Menu.Item key="page9">系统配置</Menu.Item>
                         </Menu>
                     </Sider>
                     <Layout style={{ padding: '0 24px 24px' }}>
@@ -79,6 +82,9 @@ class App extends React.Component {
                                 minHeight: 800,
                             }}
                         >
+                        {
+                            this.renderContent(this.state.currentPage)
+                        }
                         </Content>
                     </Layout>
                 </Layout>
