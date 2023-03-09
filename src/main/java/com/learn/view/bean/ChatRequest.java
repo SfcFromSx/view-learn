@@ -1,10 +1,12 @@
 package com.learn.view.bean;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
+@NoArgsConstructor
 public class ChatRequest {
     private String model;
     private List<Message> messages;
@@ -12,6 +14,7 @@ public class ChatRequest {
     // Getter and setter methods
 
     @Data
+    @NoArgsConstructor
     public static class Message {
         private String role;
         private String content;

@@ -15,7 +15,7 @@
         addMessage("user", messageText)
         chatbotInput.value = ""
         const payload = {
-            model: "gpt-3.5-turbo",
+            model: "gpt-3.5-turbo-0301",
             messages: chatHistory,
         }
 

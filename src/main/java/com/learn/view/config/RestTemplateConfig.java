@@ -55,7 +55,7 @@ public class RestTemplateConfig {
         // 设置连接超时时间为 10 秒
         clientHttpRequestFactory.setConnectTimeout(10000);
         // 设置读取超时时间为 10 秒
-        clientHttpRequestFactory.setReadTimeout(20000);
+        clientHttpRequestFactory.setReadTimeout(100000);
         return clientHttpRequestFactory;
     }
 }
