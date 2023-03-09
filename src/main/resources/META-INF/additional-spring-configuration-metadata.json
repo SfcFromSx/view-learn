@@ -4,5 +4,10 @@
       "name": "mybatis.configuration.log-impl",
       "type": "java.lang.String",
       "description": "Description for mybatis.configuration.log-impl."
-  }
-] }
+    },
+    {
+      "name": "openai.apiKey",
+      "type": "java.lang.String",
+      "description": "Description for openai.apiKey."
+    }
+  ] }

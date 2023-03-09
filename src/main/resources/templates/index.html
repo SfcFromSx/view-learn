@@ -1,91 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" media="all" th:href="@{/echart/css/index.css}">
-    <!--	基础组件-->
-    <script type="text/javascript" th:src="@{/echart/js/flexible.js}"></script>
-    <script type="text/javascript" th:src="@{/lib/jquery/jquery.min.js}"></script>
-    <!--	图表组件-->
-    <script type="text/javascript" th:src="@{/lib/echarts-5.2.0/echarts.min.js}"></script>
-    <script type="text/javascript" th:src="@{/lib/echarts-wordcloud-2.0.0/echarts-wordcloud.min.js}"></script>
-    <script type="text/javascript" th:src="@{/lib/echarts-liquidfill-3.1.0/echarts-liquidfill.min.js}"></script>
-  </head>
+<html lang="zh">
 
-  <body>
-    <header>
-      <h1 th:text="${title}"></h1>
-      <div class="showTime"></div>
-    </header>
-    <section class="mainbox">
-      <div class="column">
-        <div class="panel bar">
-          <h2>历史指令</h2>
-          <div class="chart"></div>
-          <h2>
-            <a href="javascript:;">周</a>
-            <a href="javascript:;">月</a>
-            <a href="javascript:;">年</a>
-          </h2>
-          <div class="panel-footer">
-          </div>
-        </div>
-        <div class="panel line">
-          <h2>当日指令</h2>
-          <div class="chart"></div>
-          <div class="panel-footer"></div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="no">
-          <div class="no-hd">
-            <ul>
-              <li class="typeOnNumber">指令</li>
-              <li class="commentOnNumber">新发起</li>
-              <li>10</li>
-              <li class="commentOnNumber">流转中</li>
-              <li>8</li>
-              <li class="commentOnNumber">已完成</li>
-              <li>12</li>
-            </ul>
-          </div>
-          <div class="no-hd">
-            <ul>
-              <li class="typeOnNumber">交易</li>
-              <li class="commentOnNumber">已接单</li>
-              <li>6</li>
-              <li class="commentOnNumber">流转中</li>
-              <li>5</li>
-              <li class="commentOnNumber">已成交</li>
-              <li>4</li>
-            </ul>
-          </div>
-        </div>
-        <div class="map">
-          <div class="chart1"></div>
-          <div class="chart2"></div>
-          <div class="map1"></div>
-          <div class="map2"></div>
-          <div class="map3"></div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="panel bar1">
-          <h2>历史交易</h2>
-          <div class="chart"></div>
-          <div class="panel-footer"></div>
-        </div>
-        <div class="panel line1">
-          <h2>当日交易</h2>
-          <div class="chart"></div>
-          <div class="panel-footer"></div>
-        </div>
-      </div>
-    </section>
-    <script type="text/javascript" th:src="@{/echart/js/index.js}"></script>
-    <script type="text/javascript" th:src="@{/echart/js/china.js}"></script>
-    <script type="text/javascript" th:src="@{/echart/js/wordClound.js}"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开发助手</title>
+
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/index.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
+</head>
+
+<body>
+<div class="chatbot-container">
+    <div class="chatbot-header">开发助手</div>
+    <div class="chatbot-messages"></div>
+    <div class="chatbot-input">
+        <input type="text" class="chatbot-input-field" placeholder="请输入您的问题，回车发送">
+        <button class="chatbot-send">Send</button>
+    </div>
+    <div id="loading-spinner">
+        <i class="fa fa-spinner fa-spin"></i> Loading...
+    </div>
+    <div class="chatbot-footer">Powered by MVP &copy; 2023</div>
+    <script type="text/javascript" th:src="@{/js/chatbot.js}"></script>
+</div>
+</body>
+
 </html>
